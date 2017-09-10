@@ -11,10 +11,28 @@
     tools:context="cz.tomaspexa.android.ovzdusi.Hlavni_aktivita">
 
     <TextView
-        android:layout_gravity="right"
+        android:layout_gravity="end"
         android:text="@string/zmena"/>
     <TextView
         android:layout_column="1"
         android:text="@+id/akce"/>
+    <EditText
+        android:id="@+id/etResponse"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:ems="10"
+        android:layout_marginTop="10dp" >\
+        <requestFocus />
+    </EditText>
+    <TextView
+        android:id="@+id/tvIsConnected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="#FF0000"
+        android:textColor="#FFF"
+        android:textSize="18dp"
+        android:layout_marginBottom="5dp"
+        android:text="is connected? " />
 
 </android.support.constraint.ConstraintLayout>
