@@ -10,12 +10,6 @@
     android:columnCount="3"
     tools:context="cz.tomaspexa.android.ovzdusi.Hlavni_aktivita">
 
-    <TextView
-        android:layout_gravity="end"
-        android:text="@string/zmena"/>
-    <TextView
-        android:layout_column="1"
-        android:text="@+id/akce"/>
     <EditText
         android:id="@+id/etResponse"
         android:layout_width="match_parent"
