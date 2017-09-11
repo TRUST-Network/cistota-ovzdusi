@@ -67,6 +67,7 @@ public class Hlavni_aktivita extends Activity {
             inputStream = httpResponse.getEntity().getContent();
 
             // convert inputstream to string
+			String sJson = null;
             if(inputStream != null)
                 result = convertInputStreamToString(inputStream);
             else
@@ -80,14 +81,38 @@ public class Hlavni_aktivita extends Activity {
     }
 
     private static String convertInputStreamToString(InputStream inputStream) throws IOException{
-        BufferedReader bufferedReader = new BufferedReader( new InputStreamReader(inputStream));
+        BufferedReader bufferedReader = new BufferedReader( new InputStreamReader(inputStream,"UTF-8"));
         String line = "";
         String result = "";
+		StringBuilder sb = new StringBuilder();
         while((line = bufferedReader.readLine()) != null)
-            result += line;
+            sb.append ( line + "\n" );
+		
+		sJson = sb.toString ();
+		inputStream.close();
+		try 
+		{
+			jsonObject = new JSONObject(sJson);
+			jsonObject legendJSONObject = jsonObject.getJSONOject("legend");
+			
+			
+			ArrayList<String> list = new ArrayList<String>();     
+			JSONArray jsonArray = (JSONArray)legendJSONObject; 
+			if (jsonArray != null) { 
+			   int len = jsonArray.length();
+			   for (int i=0;i<len;i++){ 
+					list.add(jsonArray.get(i).toString());
+			   } 
+			} 
 
-        inputStream.close();
-        return result;
+
+		}
+		catch ( JSONException e ) {
+			e.printStackTrace();
+		}
+
+        
+        return list;
 
     }
 

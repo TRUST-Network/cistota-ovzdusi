@@ -10,14 +10,14 @@
     android:columnCount="3"
     tools:context="cz.tomaspexa.android.ovzdusi.Hlavni_aktivita">
 
-    <EditText
+    <TextView
         android:id="@+id/etResponse"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:ems="10"
         android:layout_marginTop="10dp" >\
         <requestFocus />
-    </EditText>
+    </TextView>
     <TextView
         android:id="@+id/tvIsConnected"
         android:layout_width="wrap_content"
