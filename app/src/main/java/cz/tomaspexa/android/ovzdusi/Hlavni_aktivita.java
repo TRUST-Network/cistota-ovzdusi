@@ -5,6 +5,8 @@ package cz.tomaspexa.android.ovzdusi;
         import java.io.IOException;
         import java.io.InputStream;
         import java.io.InputStreamReader;
+        import java.util.ArrayList;
+        import java.util.List;
 
         import org.apache.http.HttpEntity;
         import org.apache.http.HttpResponse;
@@ -12,6 +14,9 @@ package cz.tomaspexa.android.ovzdusi;
         import org.apache.http.client.methods.HttpGet;
         import org.apache.http.impl.client.DefaultHttpClient;
         import org.apache.http.params.BasicHttpParams;
+        import org.json.JSONArray;
+        import org.json.JSONException;
+        import org.json.JSONObject;
 
         import android.net.ConnectivityManager;
         import android.net.NetworkInfo;
@@ -26,7 +31,7 @@ package cz.tomaspexa.android.ovzdusi;
 
 public class Hlavni_aktivita extends Activity {
 
-    EditText etResponse;
+    TextView etResponse;
     TextView tvIsConnected;
     static String sURL = "http://portal.chmi.cz/files/portal/docs/uoco/web_generator/aqindex_cze.json";
 
@@ -36,7 +41,7 @@ public class Hlavni_aktivita extends Activity {
         setContentView(R.layout.activity_hlavni_aktivita);
 
         // get reference to the views
-        etResponse = (EditText) findViewById(R.id.etResponse);
+        etResponse = (TextView) findViewById(R.id.etResponse);
         tvIsConnected = (TextView) findViewById(R.id.tvIsConnected);
 
         // check if you are connected or not
@@ -85,25 +90,28 @@ public class Hlavni_aktivita extends Activity {
         String line = "";
         String result = "";
 		StringBuilder sb = new StringBuilder();
+        List<String> allNames = new ArrayList<String>();
         while((line = bufferedReader.readLine()) != null)
             sb.append ( line + "\n" );
-		
+
+        String sJson = null;
 		sJson = sb.toString ();
 		inputStream.close();
+
+        JSONObject jsonObject;
+
 		try 
 		{
 			jsonObject = new JSONObject(sJson);
-			jsonObject legendJSONObject = jsonObject.getJSONOject("legend");
-			
-			
-			ArrayList<String> list = new ArrayList<String>();     
-			JSONArray jsonArray = (JSONArray)legendJSONObject; 
-			if (jsonArray != null) { 
-			   int len = jsonArray.length();
-			   for (int i=0;i<len;i++){ 
-					list.add(jsonArray.get(i).toString());
-			   } 
-			} 
+            JSONObject legendJSONObject = jsonObject.getJSONObject("legend");
+
+
+            JSONArray cast = jsonObject.getJSONArray("legend");
+            for (int i=0; i<cast.length(); i++) {
+                JSONObject index = cast.getJSONObject(i);
+                String name = index.getString("desc");
+                etResponse.setText(name);
+
 
 
 		}
@@ -112,7 +120,7 @@ public class Hlavni_aktivita extends Activity {
 		}
 
         
-        return list;
+        return result;
 
     }
 
