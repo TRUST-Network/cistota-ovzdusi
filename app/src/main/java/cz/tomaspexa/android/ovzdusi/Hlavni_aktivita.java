@@ -17,6 +17,7 @@ package cz.tomaspexa.android.ovzdusi;
         import org.json.JSONArray;
         import org.json.JSONException;
         import org.json.JSONObject;
+        import org.json.JSONTokener;
 
         import android.net.ConnectivityManager;
         import android.net.NetworkInfo;
@@ -27,6 +28,8 @@ package cz.tomaspexa.android.ovzdusi;
         import android.widget.TextView;
         import android.widget.Toast;
         import android.app.Activity;
+
+        import static android.media.CamcorderProfile.get;
 
 
 public class Hlavni_aktivita extends Activity {
@@ -72,7 +75,7 @@ public class Hlavni_aktivita extends Activity {
             inputStream = httpResponse.getEntity().getContent();
 
             // convert inputstream to string
-			String sJson = null;
+
             if(inputStream != null)
                 result = convertInputStreamToString(inputStream);
             else
@@ -90,37 +93,17 @@ public class Hlavni_aktivita extends Activity {
         String line = "";
         String result = "";
 		StringBuilder sb = new StringBuilder();
-        List<String> allNames = new ArrayList<String>();
+
         while((line = bufferedReader.readLine()) != null)
-            sb.append ( line + "\n" );
+            sb.append( line + "\n" );
 
         String sJson = null;
 		sJson = sb.toString ();
 		inputStream.close();
 
-        JSONObject jsonObject;
-
-		try 
-		{
-			jsonObject = new JSONObject(sJson);
-            JSONObject legendJSONObject = jsonObject.getJSONObject("legend");
-
-
-            JSONArray cast = jsonObject.getJSONArray("legend");
-            for (int i=0; i<cast.length(); i++) {
-                JSONObject index = cast.getJSONObject(i);
-                String name = index.getString("desc");
-                etResponse.setText(name);
-
-
-
-		}
-		catch ( JSONException e ) {
-			e.printStackTrace();
-		}
 
         
-        return result;
+        return sJson;
 
     }
 
@@ -132,6 +115,46 @@ public class Hlavni_aktivita extends Activity {
         else
             return false;
     }
+    public boolean ismyArray(int index)  {
+        Object object = get(index);
+        if (object instanceof JSONArray) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public StringBuilder parse ( String result, String objekt, String item) {
+        JSONObject jsonObject;
+        List<String> allNames = new ArrayList<String>();
+        StringBuilder sb = new StringBuilder();
+        //sb.append(objekt + " - " + item + "\n");
+        sb.append("\"" + item + "\":");
+        try
+        {
+
+            jsonObject = new JSONObject(result);
+
+            JSONArray cast = jsonObject.getJSONArray(objekt);
+            for (int i=0; i<cast.length(); i++) {
+                JSONObject index = cast.getJSONObject(i);
+                result = index.getString(item);
+                if ( cast.getJSONObject(i) == null) {
+                    sb.append( i + " - array\n" );
+                }
+                else  {
+                    sb.append( result + "\n"  );
+                }
+
+
+            }
+
+
+        }
+        catch ( JSONException e ) {
+            e.printStackTrace();
+        }
+        return sb;
+    }
     private class HttpAsyncTask extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... urls) {
@@ -142,7 +165,16 @@ public class Hlavni_aktivita extends Activity {
         @Override
         protected void onPostExecute(String result) {
             Toast.makeText(getBaseContext(), "Received!", Toast.LENGTH_LONG).show();
-            etResponse.setText(result);
+
+            StringBuilder text = parse(result,"Legend","Description");
+            text.append(parse(result,"Legend","Color"));
+            text.append(parse(result,"States","Name"));
+            StringBuilder regions = parse(result,"States","Regions");
+           StringBuilder stations = parse(regions.toString(),"Regions","Name");
+           // text.append(parse(stations.toString(),"Regions","Stations"));
+
+            text.append(stations);
+            etResponse.setText(text);
         }
     }
 }
