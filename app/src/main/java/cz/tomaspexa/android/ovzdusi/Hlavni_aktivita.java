@@ -137,11 +137,12 @@ public class Hlavni_aktivita extends Activity {
             JSONArray cast = jsonObject.getJSONArray(objekt);
             for (int i=0; i<cast.length(); i++) {
                 JSONObject index = cast.getJSONObject(i);
-                result = index.getString(item);
-                if ( cast.optJSONArray(i) != null) {
+                JSONArray array = cast.getJSONArray(item);
+                if ( array  != null) {
                     sb.append( i + " - array\n" );
                 }
                 else  {
+					result = index.getString(item);
                     sb.append( result + "\n"  );
                 }
 
