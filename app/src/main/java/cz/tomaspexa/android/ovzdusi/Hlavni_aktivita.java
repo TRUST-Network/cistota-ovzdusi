@@ -128,7 +128,7 @@ public class Hlavni_aktivita extends Activity {
         List<String> allNames = new ArrayList<String>();
         StringBuilder sb = new StringBuilder();
         //sb.append(objekt + " - " + item + "\n");
-        sb.append("\"" + item + "\":");
+        sb.append("{\"" + item + "\":");
         try
         {
 
@@ -138,7 +138,7 @@ public class Hlavni_aktivita extends Activity {
             for (int i=0; i<cast.length(); i++) {
                 JSONObject index = cast.getJSONObject(i);
                 result = index.getString(item);
-                if ( cast.getJSONObject(i) == null) {
+                if ( cast.optJSONArray(i) != null) {
                     sb.append( i + " - array\n" );
                 }
                 else  {
@@ -147,7 +147,7 @@ public class Hlavni_aktivita extends Activity {
 
 
             }
-
+            sb.append(  "}"  ); // konec json
 
         }
         catch ( JSONException e ) {
@@ -170,7 +170,8 @@ public class Hlavni_aktivita extends Activity {
             text.append(parse(result,"Legend","Color"));
             text.append(parse(result,"States","Name"));
             StringBuilder regions = parse(result,"States","Regions");
-           StringBuilder stations = parse(regions.toString(),"Regions","Name");
+            text.append(regions);
+           StringBuilder stations = parse(result,"Regions","Name");
            // text.append(parse(stations.toString(),"Regions","Stations"));
 
             text.append(stations);
