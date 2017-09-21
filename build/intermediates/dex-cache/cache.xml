@@ -2,211 +2,211 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="/home/pexik/.android/build-cache/afd23c565ad22baff59f2607f228dc61cb5d2095/output/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="/home/pexik/AndroidStudioProjects/cistota-ovzdusi/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_2de23d4013f6a0aa9b1c0abe062e74f448cd7b97/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/opt/android-studio/gradle/m2repository/com/intellij/annotations/12.0/annotations-12.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="bbcf6448f6d40abe506e2c83b70a3e8bfd2b4539">
-        <dex dex="/home/pexik/AndroidStudioProjects/cistota-ovzdusi/app/build/intermediates/transforms/dex/debug/folders/1000/10/annotations-12.0_39b00e8e3cf7a037d47f236262ca0a1c09b80d3d/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/pexik/.android/build-cache/537d602c2ba5cf4e6071bf4b1b846c307ac30782/output/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="/home/pexik/AndroidStudioProjects/cistota-ovzdusi/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_2a702058d0fed9ed90088db7f5d05bf5149166f7/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/pexik/.gradle/caches/modules-2/files-2.1/com.afollestad/bridge/5.1.2/1bf116293a57bbb332f27762c245370d893645ad/bridge-5.1.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="1bf116293a57bbb332f27762c245370d893645ad">
-        <dex dex="/home/pexik/AndroidStudioProjects/cistota-ovzdusi/app/build/intermediates/transforms/dex/debug/folders/1000/10/bridge-5.1.2_414c5fd5af285bcecf75c989ecf82ddc531b6a1c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/pexik/.android/build-cache/537d602c2ba5cf4e6071bf4b1b846c307ac30782/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="/home/pexik/AndroidStudioProjects/cistota-ovzdusi/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_2d7dc64bf9fbabb0a9c63a8bfdc7f39045fdf8c7/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/pexik/.android/build-cache/6f4b9b3c7670d581ec9e9bd498815b69ca1be5b9/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="/home/pexik/AndroidStudioProjects/cistota-ovzdusi/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_8a115f0fb8f3d6ac3e8050022503beffbab763ee/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/pexik/.android/build-cache/c9f531d7c19eb94116247e31bf4ca961292d6b47/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="/home/pexik/AndroidStudioProjects/cistota-ovzdusi/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3de9bdbadbd1fb8bf3e66a35899f849cd37f3702/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/pexik/.gradle/caches/modules-2/files-2.1/com.afollestad/ason/1.4.13/a336fae926210b42b5e9304db091d8393f697665/ason-1.4.13.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="a336fae926210b42b5e9304db091d8393f697665">
-        <dex dex="/home/pexik/AndroidStudioProjects/cistota-ovzdusi/app/build/intermediates/transforms/dex/debug/folders/1000/10/ason-1.4.13_59fed5142e31f3dd5b2412a7d0777065b7410ffe/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/pexik/.android/build-cache/c9f531d7c19eb94116247e31bf4ca961292d6b47/output/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\Admin\.android\build-cache\42acc8037bac09d6a01464df739ecd4e229358f7\output\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="/home/pexik/AndroidStudioProjects/cistota-ovzdusi/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_7cbb32da190a5c7ef47340434afe444759468cdc/classes.dex" />
+        <dex dex="Y:\pexa\AndroidStudioProjects\cistota-ovzdusi\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_77c55e8273088b11145a6d173a9e928aaa159de5.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/home/pexik/.android/build-cache/afd23c565ad22baff59f2607f228dc61cb5d2095/output/jars/classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="Y:\pexa\AndroidStudio\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.3"
-        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="/home/pexik/AndroidStudioProjects/cistota-ovzdusi/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_8f494d5fd1d99b17ce2ffaafbe2b83669b447b06/classes.dex" />
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="Y:\pexa\AndroidStudioProjects\cistota-ovzdusi\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.2_8cc4aa7a1f23adcf9da179df8e1704fae0338321.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Admin\.gradle\caches\modules-2\files-2.1\com.afollestad\bridge\5.1.2\1bf116293a57bbb332f27762c245370d893645ad\bridge-5.1.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="1bf116293a57bbb332f27762c245370d893645ad">
+        <dex dex="Y:\pexa\AndroidStudioProjects\cistota-ovzdusi\app\build\intermediates\pre-dexed\debug\bridge-5.1.2_6268cdb01048d5fd58b16f64a0e4829e565a41fc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Admin\.android\build-cache\519d98066c0ed8591b14ef3e74dd38260b4b4537\output\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="Y:\pexa\AndroidStudioProjects\cistota-ovzdusi\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_0c87886e69a1013827c7d77904b37ded4950c01b.jar" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/pexik/AndroidStudioProjects/cistota-ovzdusi/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="Y:\pexa\AndroidStudioProjects\cistota-ovzdusi\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="/home/pexik/AndroidStudioProjects/cistota-ovzdusi/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_2de01dd664f0f74e6b664b3a9ba3f1ca754dfb03/classes.dex" />
+        <dex dex="Y:\pexa\AndroidStudioProjects\cistota-ovzdusi\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_728dc2140b6cd49bffbcfeb6893aa64dc3a53bd9\classes.dex" />
     </item>
     <item
-        is-multidex="true"
-        jar="/home/pexik/.android/build-cache/6983c62da831031708a587e24002c237c7c50b44/output/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\Admin\.android\build-cache\519d98066c0ed8591b14ef3e74dd38260b4b4537\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.3"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="/home/pexik/AndroidStudioProjects/cistota-ovzdusi/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_afe2a90b0957e6819f0c4ca30c08869109670620/classes.dex" />
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="Y:\pexa\AndroidStudioProjects\cistota-ovzdusi\app\build\intermediates\pre-dexed\debug\classes_4ee32fb04869c5803781a2b99de9b63536043965.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/home/pexik/.android/build-cache/8054717a70d57f0a5f6698cf79a564967f1bbba3/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
-        <dex dex="/home/pexik/AndroidStudioProjects/cistota-ovzdusi/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_e6ad1a65cf6b4154fca30b4f1f3bd4c5b0a817f5/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/opt/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
-        <dex dex="/home/pexik/AndroidStudioProjects/cistota-ovzdusi/app/build/intermediates/transforms/dex/debug/folders/1000/10/constraint-layout-solver-1.0.2_eef2ca44e88da80b6765116d0de6c939cf9f0700/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/pexik/.gradle/caches/modules-2/files-2.1/org.jbundle.util.osgi.wrapped/org.jbundle.util.osgi.wrapped.org.apache.http.client/4.1.2/98c86e42679fe7ac066f6c242e0d14f0bce0bb7c/org.jbundle.util.osgi.wrapped.org.apache.http.client-4.1.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="98c86e42679fe7ac066f6c242e0d14f0bce0bb7c">
-        <dex dex="/home/pexik/AndroidStudioProjects/cistota-ovzdusi/app/build/intermediates/transforms/dex/debug/folders/1000/10/org.jbundle.util.osgi.wrapped.org.apache.http.client-4.1.2_d4c431dd0c43b5ed7b0546aa84fc377366acdf39/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/pexik/.android/build-cache/6983c62da831031708a587e24002c237c7c50b44/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
-        <dex dex="/home/pexik/AndroidStudioProjects/cistota-ovzdusi/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_99a616ea61cb229249d61be62809c824091d3504/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/pexik/.android/build-cache/cd224b8b2491fc8e9e794d8bd7fff7310e422221/output/jars/classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\Admin\.android\build-cache\4a1b039fdb073bca12b28f9d790fe1c578405c0c\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/home/pexik/AndroidStudioProjects/cistota-ovzdusi/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_10f147dd126a94a6f49989432f60f949e8cbab4c/classes.dex" />
+        <dex dex="Y:\pexa\AndroidStudioProjects\cistota-ovzdusi\app\build\intermediates\pre-dexed\debug\classes_90e2bc1839bcc3cff075e708d211f614fdc3952d.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/home/pexik/.android/build-cache/47af772858b3ac15a0c74912b08f89e16095d8fb/output/jars/classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="E:\Program Files\Android\Android Studio\gradle\m2repository\com\intellij\annotations\12.0\annotations-12.0.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.3"
-        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="/home/pexik/AndroidStudioProjects/cistota-ovzdusi/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0c1b84857a6ec0bd0dc26bee1f38e55ee3d8d5c2/classes.dex" />
+        sha1="bbcf6448f6d40abe506e2c83b70a3e8bfd2b4539">
+        <dex dex="Y:\pexa\AndroidStudioProjects\cistota-ovzdusi\app\build\intermediates\pre-dexed\debug\annotations-12.0_f129bc3c20ffb09428ebf4bdc0f615773c34dc49.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/home/pexik/AndroidStudioProjects/cistota-ovzdusi/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="db644adc4fa00c49625d23d0533b03e879e278ba">
-        <dex dex="/home/pexik/AndroidStudioProjects/cistota-ovzdusi/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_16d6ee45413f3cc840c1a42ec844d14f5492c3aa/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/pexik/.android/build-cache/8c6cbc4c45fe4d50beecd58b61d0150d1f184488/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="/home/pexik/AndroidStudioProjects/cistota-ovzdusi/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_e1ed19f94139f1a426f6126298889096ce2629a1/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/pexik/.android/build-cache/8c6cbc4c45fe4d50beecd58b61d0150d1f184488/output/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="/home/pexik/AndroidStudioProjects/cistota-ovzdusi/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_4f0cfd46b472d5c51d955bd467bd5eb5755e10af/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/pexik/.android/build-cache/793644d2bb56a84ba70a441d5b3ea45c8144e445/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="/home/pexik/AndroidStudioProjects/cistota-ovzdusi/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_2653361f863015f21ec30366f568df630f52ab2d/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/opt/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="Y:\pexa\AndroidStudio\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
-        <dex dex="/home/pexik/AndroidStudioProjects/cistota-ovzdusi/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.2.1_964bf65c102d2995423335e78cf4a68701a6d4e0/classes.dex" />
+        <dex dex="Y:\pexa\AndroidStudioProjects\cistota-ovzdusi\app\build\intermediates\pre-dexed\debug\support-annotations-24.2.1_fc82f0531a22930479f24dc2a037a4ddcab0474e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Admin\.android\build-cache\7ba9e911107e4667a280a64a2eea1803c7f815f7\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="Y:\pexa\AndroidStudioProjects\cistota-ovzdusi\app\build\intermediates\pre-dexed\debug\classes_5b70ec760fb5fca4607fc39f96ff46f2622f7251.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Admin\.android\build-cache\4e1106dc6d25a47f85febf31a1be94392ca7d226\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="Y:\pexa\AndroidStudioProjects\cistota-ovzdusi\app\build\intermediates\pre-dexed\debug\classes_892aefe1950f658bfa5ba683d584202ef4a9bb6f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Admin\.android\build-cache\89d3ec1425a946ada91ae5f1944f107488e7b35d\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="Y:\pexa\AndroidStudioProjects\cistota-ovzdusi\app\build\intermediates\pre-dexed\debug\classes_6139476803f12df83dccb1202323058e6a3bc2b2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Admin\.android\build-cache\979227571b650c60c51e426458b9c7ae7c6b2f4d\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="Y:\pexa\AndroidStudioProjects\cistota-ovzdusi\app\build\intermediates\pre-dexed\debug\classes_e4be672df5608cb4345e9cbb6190e6640422627e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Admin\.gradle\caches\modules-2\files-2.1\com.afollestad\ason\1.4.13\a336fae926210b42b5e9304db091d8393f697665\ason-1.4.13.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="a336fae926210b42b5e9304db091d8393f697665">
+        <dex dex="Y:\pexa\AndroidStudioProjects\cistota-ovzdusi\app\build\intermediates\pre-dexed\debug\ason-1.4.13_8bc9179f2b29e7adc217743ebd58a19a6d75341e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Admin\.android\build-cache\173b01b4bedf589e6447d7bc3e48ce7e5a0cff71\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="Y:\pexa\AndroidStudioProjects\cistota-ovzdusi\app\build\intermediates\pre-dexed\debug\classes_3c7e5aa58898e1e58c89dec3fc4f1eab8e97ddc4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Admin\.android\build-cache\42acc8037bac09d6a01464df739ecd4e229358f7\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="Y:\pexa\AndroidStudioProjects\cistota-ovzdusi\app\build\intermediates\pre-dexed\debug\classes_fa5c414bf36ecc6300f33a91cd25c960c7379b8d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Admin\.android\build-cache\979227571b650c60c51e426458b9c7ae7c6b2f4d\output\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="Y:\pexa\AndroidStudioProjects\cistota-ovzdusi\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_8d2aac3ee5b54e76ee7f47d1cc868f69aabb1f9f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Admin\.gradle\caches\modules-2\files-2.1\org.jbundle.util.osgi.wrapped\org.jbundle.util.osgi.wrapped.org.apache.http.client\4.1.2\98c86e42679fe7ac066f6c242e0d14f0bce0bb7c\org.jbundle.util.osgi.wrapped.org.apache.http.client-4.1.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="98c86e42679fe7ac066f6c242e0d14f0bce0bb7c">
+        <dex dex="Y:\pexa\AndroidStudioProjects\cistota-ovzdusi\app\build\intermediates\pre-dexed\debug\org.jbundle.util.osgi.wrapped.org.apache.http.client-4.1.2_b1688319acc887bcc69b42535cac3b3562df695a.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="Y:\pexa\AndroidStudioProjects\cistota-ovzdusi\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="adbfbd3bdef6a1906138eb250a554bd1ef0a39a7">
+        <dex dex="Y:\pexa\AndroidStudioProjects\cistota-ovzdusi\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_4454de1d8d1901f138e30aee14856f48e49d8f2f\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Admin\.android\build-cache\4e1106dc6d25a47f85febf31a1be94392ca7d226\output\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="Y:\pexa\AndroidStudioProjects\cistota-ovzdusi\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_502bc6d720dbebb14eda2e7edfc819f8a3794015.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Admin\.android\build-cache\8d4a115651996710056ebeb01e942fde180da23f\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="Y:\pexa\AndroidStudioProjects\cistota-ovzdusi\app\build\intermediates\pre-dexed\debug\classes_c56b139c9d77ea8e62379cf0ff1d6af796308a69.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Admin\.android\build-cache\8f32accff65a5251fa018164bcbe6573bdb2e494\output\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="Y:\pexa\AndroidStudioProjects\cistota-ovzdusi\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_ccdb93a61e42e32a92321f865751d73b993b2d74.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Admin\.android\build-cache\8f32accff65a5251fa018164bcbe6573bdb2e494\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="Y:\pexa\AndroidStudioProjects\cistota-ovzdusi\app\build\intermediates\pre-dexed\debug\classes_16d0c1ab13c335779b6a0c9c94f136bbd2a93ec3.jar" />
     </item>
 
 </items>
