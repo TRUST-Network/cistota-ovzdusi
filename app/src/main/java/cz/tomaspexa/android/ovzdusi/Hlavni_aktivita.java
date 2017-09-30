@@ -6,6 +6,7 @@ package cz.tomaspexa.android.ovzdusi;
         import java.io.InputStream;
         import java.io.InputStreamReader;
         import java.util.ArrayList;
+        import java.util.Iterator;
         import java.util.List;
 
         import org.apache.http.HttpEntity;
@@ -135,10 +136,13 @@ public class Hlavni_aktivita extends Activity {
             jsonObject = new JSONObject(result);
 
             JSONArray cast = jsonObject.getJSONArray(objekt);
+
+
             for (int i=0; i<cast.length(); i++) {
+
                 JSONObject index = cast.getJSONObject(i);
-                JSONArray array = cast.getJSONArray(item);
-                if ( array  != null) {
+
+                if ( index.getJSONArray("Regions")instanceof JSONArray ) {
                     sb.append( i + " - array\n" );
                 }
                 else  {
@@ -149,6 +153,22 @@ public class Hlavni_aktivita extends Activity {
 
             }
             sb.append(  "}"  ); // konec json
+            try {
+                JSONObject lesMots = jsonObject.getJSONObject("States");
+                Iterator<?> keys = lesMots.keys();
+
+                while(keys.hasNext()) {
+                    String key = (String)keys.next();
+                    if (lesMots.get(key) instanceof JSONObject ) {
+                        JSONObject obj = (string) lesMots.get(key);
+                        result = obj.getString(item);
+                        sb.append( result + "\n"  );
+                    }
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+                Toast.makeText(getApplicationContext(), e +"",Toast.LENGTH_LONG).show();
+            }
 
         }
         catch ( JSONException e ) {
@@ -170,12 +190,12 @@ public class Hlavni_aktivita extends Activity {
             StringBuilder text = parse(result,"Legend","Description");
             text.append(parse(result,"Legend","Color"));
             text.append(parse(result,"States","Name"));
-            StringBuilder regions = parse(result,"States","Regions");
-            text.append(regions);
-           StringBuilder stations = parse(result,"Regions","Name");
+            text.append(parse(result,"States","Regions"));
+
+           //StringBuilder stations = parse(result,"Regions","Name");
            // text.append(parse(stations.toString(),"Regions","Stations"));
 
-            text.append(stations);
+            //text.append(stations);
             etResponse.setText(text);
         }
     }
