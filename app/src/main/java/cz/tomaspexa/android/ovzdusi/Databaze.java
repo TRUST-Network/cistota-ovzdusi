@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package json;
+package cz.tomaspexa.android.ovzdusi;
 
 import java.util.ArrayList;
 
@@ -11,21 +11,16 @@ import java.util.ArrayList;
  *
  * @author Tom
  */
-public class databaze {
-    private ArrayList<Zaznam> zaznamy;
+public class Databaze {
     private ArrayList<Region> regiony;
     private ArrayList<Station> stanice;
     private ArrayList<Component> component;
     
-    public databaze () {
-        zaznamy = new ArrayList<>();
+    public Databaze () {
         regiony = new ArrayList<>();
         stanice = new ArrayList<>();
         component = new ArrayList<>();
         
-    }
-    public void pridejZaznam (String code, String name, String unit) {
-        zaznamy.add (new Zaznam ( code, name, unit));
     }
     public void pridejRegion (String code, String name) {
         regiony.add (new Region ( code, name));

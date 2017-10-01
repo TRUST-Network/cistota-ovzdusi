@@ -116,66 +116,9 @@ public class Hlavni_aktivita extends Activity {
         else
             return false;
     }
-    public boolean ismyArray(int index)  {
-        Object object = get(index);
-        if (object instanceof JSONArray) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    public StringBuilder parse ( String result, String objekt, String item) {
-        JSONObject jsonObject;
-        List<String> allNames = new ArrayList<String>();
-        StringBuilder sb = new StringBuilder();
-        //sb.append(objekt + " - " + item + "\n");
-        sb.append("{\"" + item + "\":");
-        try
-        {
-
-            jsonObject = new JSONObject(result);
-
-            JSONArray cast = jsonObject.getJSONArray(objekt);
 
 
-            for (int i=0; i<cast.length(); i++) {
 
-                JSONObject index = cast.getJSONObject(i);
-
-                if ( index.getJSONArray("Regions")instanceof JSONArray ) {
-                    sb.append( i + " - array\n" );
-                }
-                else  {
-					result = index.getString(item);
-                    sb.append( result + "\n"  );
-                }
-
-
-            }
-            sb.append(  "}"  ); // konec json
-            try {
-                JSONObject lesMots = jsonObject.getJSONObject("States");
-                Iterator<?> keys = lesMots.keys();
-
-                while(keys.hasNext()) {
-                    String key = (String)keys.next();
-                    if (lesMots.get(key) instanceof JSONObject ) {
-                        JSONObject obj = (string) lesMots.get(key);
-                        result = obj.getString(item);
-                        sb.append( result + "\n"  );
-                    }
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-                Toast.makeText(getApplicationContext(), e +"",Toast.LENGTH_LONG).show();
-            }
-
-        }
-        catch ( JSONException e ) {
-            e.printStackTrace();
-        }
-        return sb;
-    }
     private class HttpAsyncTask extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... urls) {
@@ -187,16 +130,17 @@ public class Hlavni_aktivita extends Activity {
         protected void onPostExecute(String result) {
             Toast.makeText(getBaseContext(), "Received!", Toast.LENGTH_LONG).show();
 
-            StringBuilder text = parse(result,"Legend","Description");
-            text.append(parse(result,"Legend","Color"));
-            text.append(parse(result,"States","Name"));
-            text.append(parse(result,"States","Regions"));
+           // Scanner sc = new Scanner(System.in, "Windows-1250");
+            Json test = new Json();
 
-           //StringBuilder stations = parse(result,"Regions","Name");
-           // text.append(parse(stations.toString(),"Regions","Stations"));
-
-            //text.append(stations);
-            etResponse.setText(text);
+            Databaze d = new Databaze();
+            test.setDatabaze(d);
+            try {
+                test.Json(result,"Stations");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            etResponse.setText("text");
         }
     }
 }
