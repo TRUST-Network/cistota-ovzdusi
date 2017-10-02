@@ -117,7 +117,7 @@ public class Json {
 
         Component c = null;
         if ( parent.equals("Regions")) {
-            System.out.println(o.get("Code")+ " - " +o.get("Name") );
+           // System.out.println(o.get("Code")+ " - " +o.get("Name") );
                 
                 d.pridejRegion(o.get("Code").toString(),o.get("Name").toString());
                 this.region = o.get("Code");

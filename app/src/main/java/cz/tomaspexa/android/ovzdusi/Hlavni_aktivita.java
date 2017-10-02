@@ -8,6 +8,7 @@ package cz.tomaspexa.android.ovzdusi;
         import java.util.ArrayList;
         import java.util.Iterator;
         import java.util.List;
+        import java.util.Map;
 
         import org.apache.http.HttpEntity;
         import org.apache.http.HttpResponse;
@@ -20,12 +21,15 @@ package cz.tomaspexa.android.ovzdusi;
         import org.json.JSONObject;
         import org.json.JSONTokener;
 
+        import android.app.ListActivity;
         import android.net.ConnectivityManager;
         import android.net.NetworkInfo;
         import android.os.AsyncTask;
         import android.os.Bundle;
         import android.util.Log;
+        import android.widget.ArrayAdapter;
         import android.widget.EditText;
+        import android.widget.SimpleAdapter;
         import android.widget.TextView;
         import android.widget.Toast;
         import android.app.Activity;
@@ -33,7 +37,7 @@ package cz.tomaspexa.android.ovzdusi;
         import static android.media.CamcorderProfile.get;
 
 
-public class Hlavni_aktivita extends Activity {
+public class Hlavni_aktivita extends ListActivity {
 
     TextView etResponse;
     TextView tvIsConnected;
@@ -42,10 +46,10 @@ public class Hlavni_aktivita extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hlavni_aktivita);
+        //setContentView(R.layout.activity_hlavni_aktivita);
 
         // get reference to the views
-        etResponse = (TextView) findViewById(R.id.etResponse);
+      /*  etResponse = (TextView) findViewById(R.id.etResponse);
         tvIsConnected = (TextView) findViewById(R.id.tvIsConnected);
 
         // check if you are connected or not
@@ -56,10 +60,19 @@ public class Hlavni_aktivita extends Activity {
         else{
             tvIsConnected.setText("You are NOT conncted");
         }
-
+*/
         // call AsynTask to perform network operation on separate thread
+      //  String result = this.GET(sURL);
+        Toast.makeText(getBaseContext(), "Received!", Toast.LENGTH_LONG).show();
+
+        // Scanner sc = new Scanner(System.in, "Windows-1250");
+        // ArrayList<String> a = d.vypisRegiony();
+
+
+       // etResponse.setText("text");
         new HttpAsyncTask().execute(sURL);
     }
+
 
     public static String GET(String url){
         InputStream inputStream = null;
@@ -140,7 +153,11 @@ public class Hlavni_aktivita extends Activity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            etResponse.setText("text");
+            String[] nazvyAtributu = {"name","code"};
+            int [] idAtributu = {R.id.name,R.id.code};
+            SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), d.vypisRegiony(),R.layout.list_item,nazvyAtributu,idAtributu);
+            setListAdapter(adapter);
+          //  etResponse.setText("text");
         }
     }
 }

@@ -6,6 +6,9 @@
 package cz.tomaspexa.android.ovzdusi;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -33,12 +36,17 @@ public class Databaze {
     }      
     public void ulozComponent (Component o) {
         component.add(o);
-    }   
-    public ArrayList<Region> vypisRegiony() {
-        ArrayList<Region> nalezene = new ArrayList<>();
-        for (Region z : regiony) {
-                 System.out.println(z.toString());
-                   nalezene.add(z);
+    }
+
+    public List<Map<String,?>> vypisRegiony() {
+
+            List<Map<String, ?>> nalezene = new ArrayList<Map<String, ?>>();
+            for (Region z : regiony) {
+                    System.out.println(z.toString());
+                    Map<String,String> polozkyMap = new HashMap<String, String>();
+                    polozkyMap.put("name",z.getName());
+                    polozkyMap.put("code",z.getCode());
+                    nalezene.add(polozkyMap);
         }
         return nalezene;
     }  
