@@ -5,30 +5,22 @@ package cz.tomaspexa.android.ovzdusi;
         import java.io.IOException;
         import java.io.InputStream;
         import java.io.InputStreamReader;
-        import java.util.ArrayList;
-        import java.util.Iterator;
-        import java.util.List;
-        import java.util.Map;
 
-        import org.apache.http.HttpEntity;
         import org.apache.http.HttpResponse;
         import org.apache.http.client.HttpClient;
         import org.apache.http.client.methods.HttpGet;
         import org.apache.http.impl.client.DefaultHttpClient;
-        import org.apache.http.params.BasicHttpParams;
-        import org.json.JSONArray;
         import org.json.JSONException;
-        import org.json.JSONObject;
-        import org.json.JSONTokener;
 
         import android.app.ListActivity;
+        import android.app.ListFragment;
         import android.net.ConnectivityManager;
         import android.net.NetworkInfo;
         import android.os.AsyncTask;
         import android.os.Bundle;
         import android.util.Log;
-        import android.widget.ArrayAdapter;
-        import android.widget.EditText;
+        import android.view.View;
+        import android.widget.ListView;
         import android.widget.SimpleAdapter;
         import android.widget.TextView;
         import android.widget.Toast;
@@ -37,15 +29,15 @@ package cz.tomaspexa.android.ovzdusi;
         import static android.media.CamcorderProfile.get;
 
 
-public class Hlavni_aktivita extends ListActivity {
-
+public class Hlavni_aktivita extends ListFragment {
+    private SelectedListener selListener;
     TextView etResponse;
     TextView tvIsConnected;
     static String sURL = "http://portal.chmi.cz/files/portal/docs/uoco/web_generator/aqindex_cze.json";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         //setContentView(R.layout.activity_hlavni_aktivita);
 
         // get reference to the views
@@ -133,6 +125,7 @@ public class Hlavni_aktivita extends ListActivity {
 
 
     private class HttpAsyncTask extends AsyncTask<String, Void, String> {
+
         @Override
         protected String doInBackground(String... urls) {
 
@@ -141,7 +134,7 @@ public class Hlavni_aktivita extends ListActivity {
         // onPostExecute displays the results of the AsyncTask.
         @Override
         protected void onPostExecute(String result) {
-            Toast.makeText(getBaseContext(), "Received!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "Received!", Toast.LENGTH_LONG).show();
 
            // Scanner sc = new Scanner(System.in, "Windows-1250");
             Json test = new Json();
@@ -149,15 +142,34 @@ public class Hlavni_aktivita extends ListActivity {
             Databaze d = new Databaze();
             test.setDatabaze(d);
             try {
-                test.Json(result,"Stations");
+                test.Json(result,"Stations"); // natahne data
             } catch (JSONException e) {
                 e.printStackTrace();
             }
             String[] nazvyAtributu = {"name","code"};
             int [] idAtributu = {R.id.name,R.id.code};
-            SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), d.vypisRegiony(),R.layout.list_item,nazvyAtributu,idAtributu);
+            SimpleAdapter adapter = new SimpleAdapter(getActivity(), d.vypisRegiony(),R.layout.regiony_list,nazvyAtributu,idAtributu);
             setListAdapter(adapter);
           //  etResponse.setText("text");
+        }
+        @Override
+        public void onAttach (Activity activity) {
+            super.onAttach (activity);
+            try {
+                selListener = (SelectedListener) activity;
+
+            } catch (ClassCastException e)
+
+            {
+                throw new ClassCastException(activity.toString() + " neni listener")
+            }
+        }
+        @Override
+        public void onListItemClick (ListView l, View v, int pozice, long id) {
+            selListener.onSlected(pozice);
+        }
+        public interface SelectedListener {
+            public void onSelected (int vyber);
         }
     }
 }

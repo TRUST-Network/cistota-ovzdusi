@@ -33,6 +33,7 @@ public class Json {
         }
         
     public void Json(String data, String skupina) throws JSONException {
+        // skupina bejt asi nemusi nemá to vliv
         this.skupina = skupina;
         // oznameni
         System.out.println(":test class TEST skupina: "+ skupina );
@@ -68,7 +69,7 @@ public class Json {
 
         }
        // ArrayList<Region> regiony = d.vypisRegiony();
-       // ArrayList<Station> stanice = d.vypisStanice();
+       // ArrayList<Station> stanice_list = d.vypisStanice();
        
          
  
