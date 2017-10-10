@@ -12,8 +12,6 @@ package cz.tomaspexa.android.ovzdusi;
         import org.apache.http.impl.client.DefaultHttpClient;
         import org.json.JSONException;
 
-        import android.app.ListActivity;
-        import android.app.ListFragment;
         import android.content.Intent;
         import android.net.ConnectivityManager;
         import android.net.NetworkInfo;
@@ -23,8 +21,9 @@ package cz.tomaspexa.android.ovzdusi;
         import android.support.v4.app.FragmentTransaction;
         import android.util.Log;
         import android.view.View;
+        import android.widget.ArrayAdapter;
         import android.widget.ListView;
-        import android.widget.SimpleAdapter;
+        import android.support.v4.app.ListFragment;
         import android.widget.TextView;
         import android.widget.Toast;
         import android.app.Activity;
@@ -148,8 +147,9 @@ public class Hlavni_aktivita extends FragmentActivity implements
             }
             String[] nazvyAtributu = {"name","code"};
             int [] idAtributu = {R.id.name,R.id.code};
-           // SimpleAdapter adapter = new SimpleAdapter(getActivity(), d.vypisRegiony(),R.layout.regiony_list,nazvyAtributu,idAtributu);
-          //  setListAdapter(adapter);
+            //SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), d.vypisRegiony(),R.layout.regiony_list,nazvyAtributu,idAtributu);
+            setListAdapter();
+            //setListAdapter(adapter);
           //  etResponse.setText("text");
         }
 
