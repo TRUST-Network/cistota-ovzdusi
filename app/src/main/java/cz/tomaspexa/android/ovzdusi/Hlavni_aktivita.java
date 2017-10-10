@@ -148,7 +148,7 @@ public class Hlavni_aktivita extends FragmentActivity implements
             String[] nazvyAtributu = {"name","code"};
             int [] idAtributu = {R.id.name,R.id.code};
             //SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), d.vypisRegiony(),R.layout.regiony_list,nazvyAtributu,idAtributu);
-            setListAdapter();
+            //setListAdapter();
             //setListAdapter(adapter);
           //  etResponse.setText("text");
         }
