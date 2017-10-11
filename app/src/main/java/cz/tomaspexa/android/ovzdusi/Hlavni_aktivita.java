@@ -22,8 +22,11 @@ package cz.tomaspexa.android.ovzdusi;
         import android.util.Log;
         import android.view.View;
         import android.widget.ArrayAdapter;
+        import android.widget.FrameLayout;
+        import android.widget.ListAdapter;
         import android.widget.ListView;
         import android.support.v4.app.ListFragment;
+        import android.widget.SimpleAdapter;
         import android.widget.TextView;
         import android.widget.Toast;
         import android.app.Activity;
@@ -38,6 +41,8 @@ public class Hlavni_aktivita extends FragmentActivity implements
     TextView tvIsConnected;
     static String sURL = "http://portal.chmi.cz/files/portal/docs/uoco/web_generator/aqindex_cze.json";
     private boolean mDualPane;
+    ListView lv;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -147,10 +152,10 @@ public class Hlavni_aktivita extends FragmentActivity implements
             }
             String[] nazvyAtributu = {"name","code"};
             int [] idAtributu = {R.id.name,R.id.code};
-            //SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), d.vypisRegiony(),R.layout.regiony_list,nazvyAtributu,idAtributu);
-            //setListAdapter();
-            //setListAdapter(adapter);
-          //  etResponse.setText("text");
+            SimpleAdapter adapter = new SimpleAdapter(getActivity().getBaseContext(), d.vypisRegiony(),R.layout.regiony_list,nazvyAtributu,idAtributu);
+            setListAdapter(adapter);
+
+            //etResponse.setText(adapter);
         }
 
     }
