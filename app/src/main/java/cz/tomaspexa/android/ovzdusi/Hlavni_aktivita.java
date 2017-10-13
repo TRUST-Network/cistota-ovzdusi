@@ -12,15 +12,18 @@ package cz.tomaspexa.android.ovzdusi;
         import org.apache.http.impl.client.DefaultHttpClient;
         import org.json.JSONException;
 
+        import android.app.ListActivity;
         import android.content.Intent;
         import android.net.ConnectivityManager;
         import android.net.NetworkInfo;
         import android.os.AsyncTask;
         import android.os.Bundle;
         import android.support.v4.app.FragmentActivity;
+        import android.support.v4.app.FragmentManager;
         import android.support.v4.app.FragmentTransaction;
         import android.util.Log;
         import android.view.View;
+        import android.widget.AdapterView;
         import android.widget.ArrayAdapter;
         import android.widget.FrameLayout;
         import android.widget.ListAdapter;
@@ -34,42 +37,24 @@ package cz.tomaspexa.android.ovzdusi;
         import static android.media.CamcorderProfile.get;
 
 
-public class Hlavni_aktivita extends FragmentActivity implements
-        seznamFragment.OnRulerSelectedListener{
+public class Hlavni_aktivita extends ListActivity implements AdapterView.OnItemClickListener {
 
     TextView etResponse;
     TextView tvIsConnected;
     static String sURL = "http://portal.chmi.cz/files/portal/docs/uoco/web_generator/aqindex_cze.json";
-    private boolean mDualPane;
-    ListView lv;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mDualPane = findViewById(R.id.detail) != null;
+       // mDualPane = findViewById(R.id.detail) != null;
+
         Toast.makeText(getBaseContext(), "Received!", Toast.LENGTH_LONG).show();
 
         new HttpAsyncTask().execute(sURL);
     }
 
-    public void onRulerSelected(int index) {
-        if (mDualPane) { // Dvousloupcový layout
-            StaniceFragment f = StaniceFragment.newInstance(index);
 
-            FragmentTransaction ft = getSupportFragmentManager()
-                    .beginTransaction();
-            ft.replace(R.id.detail, f);
-            // Voláním FragmentTransaction.addToBackStack dosáhneme toho,
-            // že při stisknutí tlačítka zpět se Fragment vymění s tím,
-            // co v R.id.detail bylo předtím (jiný DetailFragment nebo nic).
-            ft.addToBackStack(null);
-            ft.commit();
-        } else { // Jednosloupcový layout
-            Intent i = new Intent(this, Stanice_aktivita.class);
-            i.putExtra(Stanice_aktivita.INDEX, index);
-            startActivity(i);
-        }
-    }
     public static String GET(String url){
         InputStream inputStream = null;
         String result = "";
@@ -116,7 +101,7 @@ public class Hlavni_aktivita extends FragmentActivity implements
         return sJson;
 
     }
-
+/* NAjit kde to bzlo pouzito
     public boolean isConnected(){
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Activity.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
@@ -125,7 +110,7 @@ public class Hlavni_aktivita extends FragmentActivity implements
         else
             return false;
     }
-
+*/
 
 
     private class HttpAsyncTask extends AsyncTask<String, Void, String> {
@@ -152,10 +137,16 @@ public class Hlavni_aktivita extends FragmentActivity implements
             }
             String[] nazvyAtributu = {"name","code"};
             int [] idAtributu = {R.id.name,R.id.code};
-            SimpleAdapter adapter = new SimpleAdapter(getActivity().getBaseContext(), d.vypisRegiony(),R.layout.regiony_list,nazvyAtributu,idAtributu);
+            SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), d.vypisRegiony(),R.layout.regiony_list,nazvyAtributu,idAtributu);
             setListAdapter(adapter);
-
-            //etResponse.setText(adapter);
+            ListView lv = getListView();
+            lv.setOnClickListener(new AdapterView.OnItemClickListener(){
+            //etResponse.setText(adapter)        @Override
+                public void onItemClick(AdapterView<?> , View l, int pos, long arg) {
+                    // Chytře se zbavíme zodpovědnosti za vybrání nějakého vládce
+                    //mOnRulerSelectedListener.onRulerSelected(position);
+                }
+            });
         }
 
     }
