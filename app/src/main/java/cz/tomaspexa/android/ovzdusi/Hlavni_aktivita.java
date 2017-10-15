@@ -5,6 +5,9 @@ package cz.tomaspexa.android.ovzdusi;
         import java.io.IOException;
         import java.io.InputStream;
         import java.io.InputStreamReader;
+        import java.util.HashMap;
+        import java.util.List;
+        import java.util.Map;
 
         import org.apache.http.HttpResponse;
         import org.apache.http.client.HttpClient;
@@ -21,6 +24,7 @@ package cz.tomaspexa.android.ovzdusi;
         import android.support.v4.app.FragmentActivity;
         import android.support.v4.app.FragmentManager;
         import android.support.v4.app.FragmentTransaction;
+        import android.support.v4.util.ArrayMap;
         import android.util.Log;
         import android.view.View;
         import android.widget.AdapterView;
@@ -37,7 +41,7 @@ package cz.tomaspexa.android.ovzdusi;
         import static android.media.CamcorderProfile.get;
 
 
-public class Hlavni_aktivita extends ListActivity implements AdapterView.OnItemClickListener {
+public class Hlavni_aktivita extends ListActivity {
 
     TextView etResponse;
     TextView tvIsConnected;
@@ -137,14 +141,23 @@ public class Hlavni_aktivita extends ListActivity implements AdapterView.OnItemC
             }
             String[] nazvyAtributu = {"name","code"};
             int [] idAtributu = {R.id.name,R.id.code};
-            SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), d.vypisRegiony(),R.layout.regiony_list,nazvyAtributu,idAtributu);
+            List<Map<String,?>>  regiony = d.vypisRegionyHash();
+
+            SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), regiony,R.layout.regiony_list,nazvyAtributu,idAtributu);
             setListAdapter(adapter);
             ListView lv = getListView();
-            lv.setOnClickListener(new AdapterView.OnItemClickListener(){
-            //etResponse.setText(adapter)        @Override
-                public void onItemClick(AdapterView<?> , View l, int pos, long arg) {
-                    // Chytře se zbavíme zodpovědnosti za vybrání nějakého vládce
-                    //mOnRulerSelectedListener.onRulerSelected(position);
+            lv.setOnItemClickListener( new ListView.OnItemClickListener(){
+                public void onItemClick(AdapterView<?> a, View v, int pozice, long l) {
+                    HashMap o = (HashMap) a.getItemAtPosition(pozice);
+                    System.out.println(o.get("code"));
+
+                    Toast.makeText(getBaseContext(),"klik" + pozice , Toast.LENGTH_LONG).show();
+
+                    Intent i = new Intent(getBaseContext(),DataListFragment.class);
+                    i.putExtra(DataListFragment.INDEX, pozice);
+                    i.putExtra(DataListFragment.CODE,(String)o.get("code") );
+                    startActivity(i);
+
                 }
             });
         }

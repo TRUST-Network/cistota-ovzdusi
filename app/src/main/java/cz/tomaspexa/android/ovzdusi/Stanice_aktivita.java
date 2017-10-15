@@ -16,10 +16,12 @@ import android.widget.TextView;
 
 /**
  * Created by Admin on 3.10.2017.
+ * TRIDA se nepouziva
  */
 
 public class Stanice_aktivita extends FragmentActivity {
     public static final String INDEX = "index";
+    public static final String CODE = "code";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,9 +31,9 @@ public class Stanice_aktivita extends FragmentActivity {
         Intent i = getIntent();
         int index = i.getIntExtra(INDEX, 0);
 
-        StaniceFragment f = StaniceFragment.newInstance(index);
+       // StaniceFragment f = StaniceFragment.newInstance(index,code);
 
         // Přidá fragment do View s id detail
-        getSupportFragmentManager().beginTransaction().add(R.id.detail, f).commit();
+       // getSupportFragmentManager().beginTransaction().add(R.id.detail, f).commit();
     }
 }

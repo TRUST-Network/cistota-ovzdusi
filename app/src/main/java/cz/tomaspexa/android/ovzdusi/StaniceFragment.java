@@ -1,58 +1,72 @@
 package cz.tomaspexa.android.ovzdusi;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static cz.tomaspexa.android.ovzdusi.Json.d;
 
 /**
  * Created by pexik on 10.10.17.
  */
 
-public class StaniceFragment extends Fragment {
+public class StaniceFragment extends ListFragment {
     public static final String INDEX = "index";
+    public static final String CODE = "code";
 
-    protected static String[] details = new String[] {
-            "Nějaký text...",
-            "Nějaký text...",
-            "Nějaký text...",
-            "Nějaký text...",
-            "Nějaký text...",
-            "Karel IV.\nNarozen 1316 v Praze, zemřel 1378 tamtéž.\n\n11. český král (1346 - 1378), "
-                    + "lombardský král (1355), "
-                    + "římský král (1346 - 1355), římský císař (1355 - 1378), arelatský král (1365), markrabě "
-                    + "moravský (1333 - 1349), hrabě lucemburský (1346 - 1353).\n\nLucemburk.\n\nKřtěný Václav.\n\n"
-                    + "Syn Elišky Přemyslovny a Jana Lucemburského.\n\nManželky - Blanka z Valois, Anna Falcká, "
-                    + "Anna Svídnická, Alžběta Pomořanská.\n\nZaložil - Nové Město pražské, Karlovu univerzitu.\n\n"
-                    + "Nechal postavit - Karlův most, Hladovou zeď.\n\nNechal vyrobit - Svatováclavskou korunu.\n\n"
-                    + "Vita Caroli - vlastní životopis psaný latinsky.",
-            "Nějaký text...",
-            "Nějaký text...",
-            "Nějaký text...",
-            "Nějaký text..."
-    };
 
-    public static StaniceFragment newInstance(int index) {
+    public static StaniceFragment newInstance(int index, String code) {
         StaniceFragment f = new StaniceFragment();
         Bundle args = new Bundle();
         args.putInt(INDEX, index);
+        args.putString( CODE,code);
         f.setArguments(args);
         return f;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public void onActivityCreated (Bundle savedInstanceState ) {
+        super.onActivityCreated(savedInstanceState);
 
-        View v = inflater.inflate(R.layout.activity_hlavni_aktivita, container, false);
 
         int index = getArguments().getInt(INDEX, 0);
+        String code = getArguments().getString(CODE);
+        List<Map<String,?>> stanice = d.vypisStaniceHash(code);
 
-        TextView tv = (TextView) v.findViewById(R.id.etResponse);
-        tv.setText(details[index]);
+        String[] nazvyAtributu = {"name","code"};
+        int [] idAtributu = {R.id.name,R.id.code};
+        System.out.println(stanice);
+        SimpleAdapter adapter = new SimpleAdapter(getContext(), stanice,R.layout.stanice_list,nazvyAtributu,idAtributu);
+        setListAdapter(adapter);
+        ListView lv = getListView();
+        lv.setOnItemClickListener( new ListView.OnItemClickListener(){
+            public void onItemClick(AdapterView<?> a, View v, int pozice, long l) {
+                HashMap o = (HashMap) a.getItemAtPosition(pozice);
+                System.out.println(o.get("code"));
 
-        return v;
+               // Toast.makeText(getBaseContext(),"klik" + pozice , Toast.LENGTH_LONG).show();
+
+               Intent i = new Intent(getContext(),DetailActivity.class);
+                i.putExtra(DataListFragment.INDEX, pozice);
+                i.putExtra(DataListFragment.CODE,(String)o.get("code") );
+                startActivity(i);
+
+
+            }
+        });
+
     }
 }

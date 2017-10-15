@@ -37,8 +37,16 @@ public class Databaze {
     public void ulozComponent (Component o) {
         component.add(o);
     }
-
-    public List<Map<String,?>> vypisRegiony() {
+    public String getStationName (String code) {
+        for (Station z : stanice){
+            if (z.getCode().equals(code)) {
+               return z.getName();
+            }
+        }
+        return "";
+    }
+    // vlozi regiony do hash mapy
+    public List<Map<String,?>> vypisRegionyHash() {
 
             List<Map<String, ?>> nalezene = new ArrayList<Map<String, ?>>();
             for (Region z : regiony) {
@@ -67,15 +75,30 @@ public class Databaze {
                 }
         }
         return nalezene;
-    }     
+    }
+    // vypise stanice dle code regionu
+    public List<Map<String,?>>  vypisStaniceHash(String code) {
+        List<Map<String, ?>> nalezene = new ArrayList<Map<String, ?>>();
+        for (Station z : stanice) {
+            Map<String, String> polozkyMap = new HashMap<String, String>();
+            if (z.getRegion().equals(code)) {
+                polozkyMap.put("name", z.getName());
+                polozkyMap.put("code", z.getCode());
+                nalezene.add(polozkyMap);
+            }
+        }
+        return nalezene;
+    }
     public ArrayList<Station>  vypisStanici( String code) {
         ArrayList<Station> nalezene = new ArrayList<>();
         for (Station z : stanice) {
             if (z.getCode().equals(code)) {                
                 System.out.println(z.toString());
                 for (Component c : component ){
-                   if (c.getStanice().equals(z.getCode())) {                
-                        System.out.println(c.toString()); 
+                   if (c.getStanice().equals(z.getCode())) {
+                       // vypise komponenty stanice
+                       // System.out.println(c.toString());
+                       //
                    }
                 }
                    nalezene.add(z); 
@@ -84,15 +107,34 @@ public class Databaze {
         }
         return nalezene;
     }  
-    public ArrayList<Region>  vypisRegion( String code) {
-        ArrayList<Region> nalezene = new ArrayList<>();
-        for (Region z : regiony) {
-            if (z.getCode().equals(code)) {                
-                System.out.println(z.toString());
-                   nalezene.add(z); 
+    public List<Map<String,?>>   vypisComponentHash( String code) {
+        List<Map<String, ?>> nalezene = new ArrayList<Map<String, ?>>();
+        for (Component z : component) {
+            Map<String, String> polozkyMap = new HashMap<String, String>();
+            if (z.getStanice().equals(code)) {
+               // System.out.println(z.toString());
+                polozkyMap.put("val", z.getVal());
+                polozkyMap.put("code", z.getCode());
+                polozkyMap.put("interval", z.getInt());
+                nalezene.add(polozkyMap);
             }
                 
         }
         return nalezene;
-    } 
+    }
+    public ArrayList<Region>  vypisRegion( String code) {
+        ArrayList<Region> nalezene = new ArrayList<>();
+        for (Region z : regiony) {
+            if (z.getCode().equals(code)) {
+                System.out.println(z.toString());
+                nalezene.add(z);
+            }
+
+        }
+        return nalezene;
+    }
+    @Override
+    public String toString() {
+        return  "nevim";
+    }
 }
