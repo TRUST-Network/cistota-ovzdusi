@@ -5,6 +5,9 @@ package cz.tomaspexa.android.ovzdusi;
         import java.io.IOException;
         import java.io.InputStream;
         import java.io.InputStreamReader;
+        import java.util.HashMap;
+        import java.util.List;
+        import java.util.Map;
 
         import org.apache.http.HttpResponse;
         import org.apache.http.client.HttpClient;
@@ -12,51 +15,50 @@ package cz.tomaspexa.android.ovzdusi;
         import org.apache.http.impl.client.DefaultHttpClient;
         import org.json.JSONException;
 
+        import android.app.ListActivity;
         import android.content.Intent;
         import android.net.ConnectivityManager;
         import android.net.NetworkInfo;
+        import android.os.AsyncTask;
         import android.os.Bundle;
         import android.support.v4.app.FragmentActivity;
+        import android.support.v4.app.FragmentManager;
         import android.support.v4.app.FragmentTransaction;
+        import android.support.v4.util.ArrayMap;
         import android.util.Log;
+        import android.view.View;
+        import android.widget.AdapterView;
+        import android.widget.ArrayAdapter;
+        import android.widget.FrameLayout;
+        import android.widget.ListAdapter;
+        import android.widget.ListView;
+        import android.support.v4.app.ListFragment;
+        import android.widget.SimpleAdapter;
         import android.widget.TextView;
+        import android.widget.Toast;
+        import android.app.Activity;
+
+        import static android.media.CamcorderProfile.get;
 
 
-
-public class Hlavni_aktivita extends FragmentActivity implements
-        seznamFragment.OnRulerSelectedListener{
+public class Hlavni_aktivita extends ListActivity {
 
     TextView etResponse;
     TextView tvIsConnected;
     static String sURL = "http://portal.chmi.cz/files/portal/docs/uoco/web_generator/aqindex_cze.json";
-    private boolean mDualPane;
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mDualPane = findViewById(R.id.detail) != null;
+       // mDualPane = findViewById(R.id.detail) != null;
+
         Toast.makeText(getBaseContext(), "Received!", Toast.LENGTH_LONG).show();
 
         new HttpAsyncTask().execute(sURL);
     }
 
-    public void onRulerSelected(int index) {
-        if (mDualPane) { // Dvousloupcový layout
-            StaniceFragment f = StaniceFragment.newInstance(index);
 
-            FragmentTransaction ft = getSupportFragmentManager()
-                    .beginTransaction();
-            ft.replace(R.id.detail, f);
-            // Voláním FragmentTransaction.addToBackStack dosáhneme toho,
-            // že při stisknutí tlačítka zpět se Fragment vymění s tím,
-            // co v R.id.detail bylo předtím (jiný DetailFragment nebo nic).
-            ft.addToBackStack(null);
-            ft.commit();
-        } else { // Jednosloupcový layout
-            Intent i = new Intent(this, Stanice_aktivita.class);
-            i.putExtra(Stanice_aktivita.INDEX, index);
-            startActivity(i);
-        }
-    }
     public static String GET(String url){
         InputStream inputStream = null;
         String result = "";
@@ -103,7 +105,7 @@ public class Hlavni_aktivita extends FragmentActivity implements
         return sJson;
 
     }
-
+/* NAjit kde to bzlo pouzito
     public boolean isConnected(){
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Activity.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
@@ -112,7 +114,7 @@ public class Hlavni_aktivita extends FragmentActivity implements
         else
             return false;
     }
-
+*/
 
 
     private class HttpAsyncTask extends AsyncTask<String, Void, String> {
@@ -127,6 +129,7 @@ public class Hlavni_aktivita extends FragmentActivity implements
         protected void onPostExecute(String result) {
             Toast.makeText(getBaseContext(), "Received!", Toast.LENGTH_LONG).show();
 
+           // Scanner sc = new Scanner(System.in, "Windows-1250");
             Json test = new Json();
 
             Databaze d = new Databaze();
@@ -138,10 +141,25 @@ public class Hlavni_aktivita extends FragmentActivity implements
             }
             String[] nazvyAtributu = {"name","code"};
             int [] idAtributu = {R.id.name,R.id.code};
-            //SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), d.vypisRegiony(),R.layout.regiony_list,nazvyAtributu,idAtributu);
-            //setListAdapter();
-            //setListAdapter(adapter);
-          //  etResponse.setText("text");
+            List<Map<String,?>>  regiony = d.vypisRegionyHash();
+
+            SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), regiony,R.layout.regiony_list,nazvyAtributu,idAtributu);
+            setListAdapter(adapter);
+            ListView lv = getListView();
+            lv.setOnItemClickListener( new ListView.OnItemClickListener(){
+                public void onItemClick(AdapterView<?> a, View v, int pozice, long l) {
+                    HashMap o = (HashMap) a.getItemAtPosition(pozice);
+                    System.out.println(o.get("code"));
+
+                    Toast.makeText(getBaseContext(),"klik" + pozice , Toast.LENGTH_LONG).show();
+
+                    Intent i = new Intent(getBaseContext(),DataListFragment.class);
+                    i.putExtra(DataListFragment.INDEX, pozice);
+                    i.putExtra(DataListFragment.CODE,(String)o.get("code") );
+                    startActivity(i);
+
+                }
+            });
         }
 
     }

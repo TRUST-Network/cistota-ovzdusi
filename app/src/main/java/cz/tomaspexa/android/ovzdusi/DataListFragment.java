@@ -1,25 +1,20 @@
 package cz.tomaspexa.android.ovzdusi;
 
-import android.app.Activity;
-import android.app.Fragment;
 import android.app.ListFragment;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.app.Activity;
 import android.support.v4.app.FragmentActivity;
-import android.view.LayoutInflater;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 /**
- * Created by Admin on 3.10.2017.
- * TRIDA se nepouziva
+ * Created by pexik on 13.10.17.
  */
 
-public class Stanice_aktivita extends FragmentActivity {
+public class DataListFragment extends FragmentActivity {
     public static final String INDEX = "index";
     public static final String CODE = "code";
 
@@ -30,10 +25,11 @@ public class Stanice_aktivita extends FragmentActivity {
 
         Intent i = getIntent();
         int index = i.getIntExtra(INDEX, 0);
+       String code = i.getStringExtra(CODE);
 
-       // StaniceFragment f = StaniceFragment.newInstance(index,code);
+        StaniceFragment f = StaniceFragment.newInstance(index,code);
 
         // Přidá fragment do View s id detail
-       // getSupportFragmentManager().beginTransaction().add(R.id.detail, f).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.detail, f).commit();
     }
 }
