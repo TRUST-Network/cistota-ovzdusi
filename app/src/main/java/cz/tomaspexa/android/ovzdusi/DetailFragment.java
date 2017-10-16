@@ -54,7 +54,13 @@ public class DetailFragment extends Fragment {
         View v = inflater.inflate(R.layout.stanice_detail, container, false);
 
         TextView name = (TextView) v.findViewById(R.id.name);
-        name.setText(stanice);
+        name.setText(sb);
+         ArrayList mData;
+        mData = new ArrayList();
+        component.get(1);
+        for ( int i=0; i < component.size(); i++ ) {
+            System.out.println(component.get(i).values());
+        }
         /*String[] nazvyAtributu = {"val","code"};
         int [] idAtributu = {R.id.val,R.id.code};
         List<Map<String,?>>  componenty = d.vypisComponentHash(code);
@@ -62,8 +68,8 @@ public class DetailFragment extends Fragment {
         SimpleAdapter adapter = new SimpleAdapter(getContext(), componenty,R.layout.stanice_detail,nazvyAtributu,idAtributu);
         setListAdapter(adapter);
         */
-        TextView value = (TextView) v.findViewById(R.id.val);
-        value.setText(sb);
+        //TextView value = (TextView) v.findViewById(R.id.val);
+       // value.setText(component.get(i).get("val"));
         return v;
     }
 }

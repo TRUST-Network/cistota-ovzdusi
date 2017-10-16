@@ -25,6 +25,6 @@ dependencies {
     compile 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
     compile 'org.json:org.json:chargebee-1.0'
     compile files('libs/json-20170516.jar')
-    compile 'com.android.support:support-v4:26.0.0-alpha1'
     compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
+    compile 'com.android.support.test:runner:0.5'
 }
