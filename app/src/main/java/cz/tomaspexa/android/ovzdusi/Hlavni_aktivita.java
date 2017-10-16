@@ -15,20 +15,12 @@ package cz.tomaspexa.android.ovzdusi;
         import android.content.Intent;
         import android.net.ConnectivityManager;
         import android.net.NetworkInfo;
-        import android.os.AsyncTask;
         import android.os.Bundle;
         import android.support.v4.app.FragmentActivity;
         import android.support.v4.app.FragmentTransaction;
         import android.util.Log;
-        import android.view.View;
-        import android.widget.ArrayAdapter;
-        import android.widget.ListView;
-        import android.support.v4.app.ListFragment;
         import android.widget.TextView;
-        import android.widget.Toast;
-        import android.app.Activity;
 
-        import static android.media.CamcorderProfile.get;
 
 
 public class Hlavni_aktivita extends FragmentActivity implements
@@ -135,7 +127,6 @@ public class Hlavni_aktivita extends FragmentActivity implements
         protected void onPostExecute(String result) {
             Toast.makeText(getBaseContext(), "Received!", Toast.LENGTH_LONG).show();
 
-           // Scanner sc = new Scanner(System.in, "Windows-1250");
             Json test = new Json();
 
             Databaze d = new Databaze();
