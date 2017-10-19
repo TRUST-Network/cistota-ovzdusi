@@ -55,7 +55,7 @@ public class Json {
              //   System.out.println(key + " / root path array");
                 JSONArray p;
                p = object.getJSONArray(key);
-                String text = cyklusA (p, key);
+                String text = cyklusA (p, key + "-root" );
                 //interventionJsonArray = (JSONArray)intervention;
             } 
            if ( value instanceof JSONObject ) {
@@ -134,6 +134,17 @@ public class Json {
             c = d.pridejComponent(codeC.toString(), station.toString() );
             
          }
+        // komponenty jednotek
+        if ( parent.equals("Components-root")) {
+            // komponenty pro prevod jednotek
+            //System.out.println(o.get("Name")+ " komponent ");
+            d.pridejComponentUnits (o.get("Code").toString(),o.get("Name").toString(),o.get("Unit").toString()) ;
+        }
+        if ( parent.equals("Legend-root")) {
+            // komponenty pro prevod jednotek
+            System.out.println(o.get("Description")+ " legend ");
+            d.pridejLegend (o.get("Ix").toString(),o.get("Color").toString(),o.get("ColorText").toString(),o.get("Description").toString()) ;
+        }
          
         while (keys_iter.hasNext())
         {

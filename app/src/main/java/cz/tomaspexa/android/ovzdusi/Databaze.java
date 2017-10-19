@@ -18,11 +18,15 @@ public class Databaze {
     private ArrayList<Region> regiony;
     private ArrayList<Station> stanice;
     private ArrayList<Component> component;
+    private ArrayList<ComponentUnits> unitA;
+    private ArrayList<Legend> legend;
     
     public Databaze () {
         regiony = new ArrayList<>();
         stanice = new ArrayList<>();
         component = new ArrayList<>();
+        unitA = new ArrayList<>();
+        legend = new ArrayList<>();
         
     }
     public void pridejRegion (String code, String name) {
@@ -33,7 +37,13 @@ public class Databaze {
     }    
     public Component pridejComponent (String code, String stanice) {
         return new Component ( code,stanice);
-    }      
+    }
+    public void pridejComponentUnits (String code, String name, String unit) {
+        unitA.add ( new ComponentUnits ( code,name,unit));
+    }
+    public void pridejLegend (String ix, String color, String colorText, String description) {
+        legend.add ( new Legend ( ix, color, colorText, description));
+    }
     public void ulozComponent (Component o) {
         component.add(o);
     }
@@ -89,38 +99,76 @@ public class Databaze {
         }
         return nalezene;
     }
-    public ArrayList<Station>  vypisStanici( String code) {
-        ArrayList<Station> nalezene = new ArrayList<>();
+    // vypise komponenty stanice
+    public HashMap<String,Map> vypisStanici( String code) {
+        //ArrayList<Station> nalezene = new ArrayList<>();
+        HashMap<String,Map> nalezene = new HashMap<>();
         for (Station z : stanice) {
-            if (z.getCode().equals(code)) {                
+            if (z.getCode().equals(code)) {
                 System.out.println(z.toString());
+
                 for (Component c : component ){
-                   if (c.getStanice().equals(z.getCode())) {
-                       // vypise komponenty stanice
-                       // System.out.println(c.toString());
-                       //
-                   }
+                    Map<String, String> words = new HashMap<>();
+                    if (c.getStanice().equals(z.getCode())) {
+                        //System.out.println(c.toString());
+                        words.put("code", c.getCode());
+                        words.put("val",c.getVal ());
+                        words.put("interval",c.getInt ());
+                        words.put("ix",c.getIx ());
+                        nalezene.put(c.getCode(),words);
+                    }
                 }
-                   nalezene.add(z); 
+
+                //nalezene.add(z);
             }
-                
+
         }
+        /*for (Map.Entry<String,Map> i : nalezene.entrySet()){
+            System.out.println(this.getUnitName(i.getValue().get("code").toString()) + " "+ i.getValue().get("val") +" " + this.getUnitUnit(i.getValue().get("code").toString())+
+                    " " + this.getLegendDesc(i.getValue().get("ix").toString()));
+        }*/
+
         return nalezene;
-    }  
-    public List<Map<String,?>>   vypisComponentHash( String code) {
-        List<Map<String, ?>> nalezene = new ArrayList<Map<String, ?>>();
-        for (Component z : component) {
-            Map<String, String> polozkyMap = new HashMap<String, String>();
-            if (z.getStanice().equals(code)) {
-               // System.out.println(z.toString());
-                polozkyMap.put("val", z.getVal());
-                polozkyMap.put("code", z.getCode());
-                polozkyMap.put("interval", z.getInt());
-                nalezene.add(polozkyMap);
+    }
+    public String getUnitName(String code) {
+        for (ComponentUnits z :  unitA) {
+
+            if (z.getCode().equals(code)) {
+                //System.out.println(z.toString());
+                return z.getName().toString();
             }
-                
         }
-        return nalezene;
+        return "null";
+    }
+
+    public String getUnitUnit(String code) {
+        for (ComponentUnits z :  unitA) {
+            if (z.getCode().equals(code)) {
+                //System.out.println(z.toString());
+                return z.getUnit().toString();
+            }
+        }
+        return "null";
+    }
+    public String getLegendDesc(String ix) {
+        for (Legend z :  legend) {
+            //System.out.println(z.getIx().toString());
+            if (z.getIx().equals(ix)) {
+
+                return z.getDesc();
+            }
+        }
+        return ix;
+    }
+    public String getLegendColor(String ix) {
+        for (Legend z :  legend) {
+            //System.out.println(z.getIx().toString());
+            if (z.getIx().equals(ix)) {
+
+                return z.getColor().toString();
+            }
+        }
+        return ix;
     }
     public ArrayList<Region>  vypisRegion( String code) {
         ArrayList<Region> nalezene = new ArrayList<>();

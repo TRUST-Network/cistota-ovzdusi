@@ -1,23 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <TextView android:id="@+id/name"
+
+    <TextView
+        android:id="@+id/name"
+        style="@android:style/TextAppearance.Large"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        style="@android:style/TextAppearance.Large"/>
-    <TextView android:id="@+id/code"
+        android:layout_height="93dp" />
+
+    <TextView
+        android:id="@+id/NO2"
+        style="@android:style/TextAppearance.Large"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        style="@android:style/TextAppearance.Small"/>
-    <TextView android:id="@+id/val"
+        android:layout_height="72dp" />
+
+    <TextView
+        android:id="@+id/O3"
+        style="@android:style/TextAppearance.Large"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        style="@android:style/TextAppearance.Small"/>
-    <TextView android:id="@+id/interval"
+        android:layout_height="118dp" />
+
+    <TextView
+        android:id="@+id/SO2"
+        style="@android:style/TextAppearance.Small"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        style="@android:style/TextAppearance.Small"/>
+        android:layout_height="74dp" />
+
+    <TextView
+        android:id="@+id/CO"
+        style="@android:style/TextAppearance.Small"
+        android:layout_width="match_parent"
+        android:layout_height="70dp" />
+    <TextView
+        android:id="@+id/PM2_5"
+        style="@android:style/TextAppearance.Small"
+        android:layout_width="match_parent"
+        android:layout_height="38dp" />
+    <TextView
+        android:id="@+id/PM10"
+        style="@android:style/TextAppearance.Small"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </LinearLayout>
