@@ -158,7 +158,7 @@ public class Databaze {
                 return z.getDesc();
             }
         }
-        return ix;
+        return "";
     }
     public String getLegendColor(String ix) {
         for (Legend z :  legend) {
@@ -168,7 +168,7 @@ public class Databaze {
                 return z.getColor().toString();
             }
         }
-        return ix;
+        return "80FFFFFF";
     }
     public ArrayList<Region>  vypisRegion( String code) {
         ArrayList<Region> nalezene = new ArrayList<>();

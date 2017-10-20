@@ -7,7 +7,9 @@ import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
@@ -48,8 +50,6 @@ public class DetailFragment extends Fragment {
 
         String stanice = d.getStationName(code);
         HashMap <String,Map> component = d.vypisStanici(code);
-       // Map <String,String> componentO3 = d.vypisStanici(code).get("O3");
-        Map <String,String> componentSO2 = d.vypisStanici(code).get("SO2");
         StringBuilder sb = new StringBuilder();
         sb.append(stanice);
         //sb.append(component);
@@ -58,7 +58,10 @@ public class DetailFragment extends Fragment {
         View v = inflater.inflate(R.layout.stanice_detail, container, false);
 
         TextView name = (TextView) v.findViewById(R.id.name);
-        TextView NO2 = (TextView) v.findViewById(R.id.NO2);
+        LinearLayout NO2 =  (LinearLayout)v.findViewById(R.id.NO2);
+        TextView NO2Name = (TextView) v.findViewById(R.id.NO2Name);
+        TextView NO2Desc = (TextView) v.findViewById(R.id.NO2Desc);
+        TextView NO2text = (TextView) v.findViewById(R.id.NO2text);
         TextView O3 = (TextView) v.findViewById(R.id.O3);
         TextView SO2 = (TextView) v.findViewById(R.id.SO2);
         TextView CO = (TextView) v.findViewById(R.id.CO);
@@ -67,19 +70,45 @@ public class DetailFragment extends Fragment {
 
         name.setText(sb);
 
-
-        NO2.setText(d.getUnitName(component.get("NO2").get("code").toString()) + " " + component.get("NO2").get("val").toString() + " "
-                + d.getUnitUnit(component.get("NO2").get("code").toString()) + " " +d.getLegendDesc(component.get("NO2").get("ix").toString()));
-        // Color	"9BD3AE"
-        NO2.setBackgroundColor(Color.parseColor("#"+d.getLegendColor(component.get("NO2").get("ix").toString())));
-
-        //O3.setText(componentO3.get("code").toString());
-
-        SO2.setText(componentSO2.get("code").toString());
-
         for (Map.Entry<String,Map> i : component.entrySet()){
+
             System.out.println(d.getUnitName(i.getValue().get("code").toString()) + " "+ i.getValue().get("val") +" " + d.getUnitUnit(i.getValue().get("code").toString())+
-                    " " + d.getLegendDesc(i.getValue().get("ix").toString()));
+                    " " + d.getLegendDesc(i.getValue().get("ix").toString()) + d.getLegendColor(i.getValue().get("ix").toString()));
+
+            String text = i.getValue().get("val") +" " + d.getUnitUnit(i.getValue().get("code").toString());
+            String UnitName =  d.getUnitName(i.getValue().get("code").toString());
+            String UnitDesc =  d.getLegendDesc(i.getValue().get("ix").toString());
+            int color = Color.parseColor("#"+d.getLegendColor(i.getValue().get("ix").toString()));
+
+            switch (i.getValue().get("code").toString()){
+                case "NO2":
+                    NO2Name.setText(UnitName);
+                    NO2text.setText(text);
+                    NO2Desc.setText(UnitDesc);
+                    NO2.setBackgroundColor(color);
+                    break;
+                case "O3":
+                    O3.setText(text);
+                    O3.setBackgroundColor(color);
+                    break;
+                case "SO2":
+                    SO2.setText(text);
+                    SO2.setBackgroundColor(color);
+                    break;
+                case "CO":
+                    CO.setText(text);
+                    CO.setBackgroundColor(color);
+                    break;
+                case "PM2_5":
+                    PM2_5.setText(text);
+                    PM2_5.setBackgroundColor(color);
+                    break;
+                case "PM10":
+                    PM10.setText(text);
+                    PM10.setBackgroundColor(color);
+                    break;
+            }
+
             //i.getValue().get("code").setText();
         }
         /*String[] nazvyAtributu = {"val","code"};

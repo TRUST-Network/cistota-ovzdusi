@@ -11,14 +11,15 @@ package cz.tomaspexa.android.ovzdusi;
  */
 public class Component {
     private String code;
-    private String interval;
-    private String value;
-    private String ix;
+    private String interval = "null";;
+    private String value = "null";
+    private String ix = "null";;
     private String stanice;
     
     public Component ( String code, String stanice ) {
     this.code = code;
     this.stanice = stanice;
+
                 
     }
     public void setInt ( String interval) {
