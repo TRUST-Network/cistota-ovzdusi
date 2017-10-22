@@ -8,13 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -62,11 +57,27 @@ public class DetailFragment extends Fragment {
         TextView NO2Name = (TextView) v.findViewById(R.id.NO2Name);
         TextView NO2Desc = (TextView) v.findViewById(R.id.NO2Desc);
         TextView NO2text = (TextView) v.findViewById(R.id.NO2text);
-        TextView O3 = (TextView) v.findViewById(R.id.O3);
-        TextView SO2 = (TextView) v.findViewById(R.id.SO2);
-        TextView CO = (TextView) v.findViewById(R.id.CO);
-        TextView PM2_5 = (TextView) v.findViewById(R.id.PM2_5);
-        TextView PM10 = (TextView) v.findViewById(R.id.PM10);
+        LinearLayout O3 =  (LinearLayout)v.findViewById(R.id.O3);
+        TextView O3Name = (TextView) v.findViewById(R.id.O3Name);
+        TextView O3Desc = (TextView) v.findViewById(R.id.O3Desc);
+        TextView O3text = (TextView) v.findViewById(R.id.O3text);
+        LinearLayout SO2 =  (LinearLayout)v.findViewById(R.id.SO2);
+        TextView SO2Name = (TextView) v.findViewById(R.id.SO2Name);
+        TextView SO2Desc = (TextView) v.findViewById(R.id.SO2Desc);
+        TextView SO2text = (TextView) v.findViewById(R.id.SO2text);
+        LinearLayout CO =  (LinearLayout)v.findViewById(R.id.CO);
+        TextView COName = (TextView) v.findViewById(R.id.COName);
+        TextView CODesc = (TextView) v.findViewById(R.id.CODesc);
+        TextView COtext = (TextView) v.findViewById(R.id.COtext);
+        LinearLayout PM2_5 =  (LinearLayout)v.findViewById(R.id.PM2_5);
+        TextView PM2_5Name = (TextView) v.findViewById(R.id.PM2_5Name);
+        TextView PM2_5Desc = (TextView) v.findViewById(R.id.PM2_5Desc);
+        TextView PM2_5text = (TextView) v.findViewById(R.id.PM2_5text);
+        LinearLayout PM10 =  (LinearLayout)v.findViewById(R.id.PM10);
+        TextView PM10Name = (TextView) v.findViewById(R.id.PM10Name);
+        TextView PM10Desc = (TextView) v.findViewById(R.id.PM10Desc);
+        TextView PM10text = (TextView) v.findViewById(R.id.PM10text);
+
 
         name.setText(sb);
 
@@ -88,23 +99,33 @@ public class DetailFragment extends Fragment {
                     NO2.setBackgroundColor(color);
                     break;
                 case "O3":
-                    O3.setText(text);
+                    O3Name.setText(UnitName);
+                    O3text.setText(text);
+                    O3Desc.setText(UnitDesc);
                     O3.setBackgroundColor(color);
                     break;
                 case "SO2":
-                    SO2.setText(text);
+                    SO2Name.setText(UnitName);
+                    SO2text.setText(text);
+                    SO2Desc.setText(UnitDesc);
                     SO2.setBackgroundColor(color);
                     break;
                 case "CO":
-                    CO.setText(text);
+                    COName.setText(UnitName);
+                    COtext.setText(text);
+                    CODesc.setText(UnitDesc);
                     CO.setBackgroundColor(color);
                     break;
                 case "PM2_5":
-                    PM2_5.setText(text);
+                    PM2_5Name.setText(UnitName);
+                    PM2_5text.setText(text);
+                    PM2_5Desc.setText(UnitDesc);
                     PM2_5.setBackgroundColor(color);
                     break;
                 case "PM10":
-                    PM10.setText(text);
+                    PM10Name.setText(UnitName);
+                    PM10text.setText(text);
+                    PM10Desc.setText(UnitDesc);
                     PM10.setBackgroundColor(color);
                     break;
             }
