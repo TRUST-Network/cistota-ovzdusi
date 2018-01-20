@@ -15,6 +15,7 @@ import java.util.Map;
  * @author Tom
  */
 public class Databaze {
+    private ArrayList<Informace> info;
     private ArrayList<Region> regiony;
     private ArrayList<Station> stanice;
     private ArrayList<Component> component;
@@ -22,12 +23,16 @@ public class Databaze {
     private ArrayList<Legend> legend;
     
     public Databaze () {
+        info = new ArrayList<>();
         regiony = new ArrayList<>();
         stanice = new ArrayList<>();
         component = new ArrayList<>();
         unitA = new ArrayList<>();
         legend = new ArrayList<>();
         
+    }
+    public void pridejInformace (String code, String name) {
+        info.add (new Informace ( code, name));
     }
     public void pridejRegion (String code, String name) {
         regiony.add (new Region ( code, name));
