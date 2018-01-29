@@ -31,8 +31,8 @@ public class Databaze {
         legend = new ArrayList<>();
         
     }
-    public void pridejInformace (String code, String name) {
-        info.add (new Informace ( code, name));
+    public void pridejInformace (String name) {
+        info.add (new Informace ( name));
     }
     public void pridejRegion (String code, String name) {
         regiony.add (new Region ( code, name));
@@ -52,6 +52,7 @@ public class Databaze {
     public void ulozComponent (Component o) {
         component.add(o);
     }
+
     public String getStationName (String code) {
         for (Station z : stanice){
             if (z.getCode().equals(code)) {
@@ -59,6 +60,9 @@ public class Databaze {
             }
         }
         return "";
+    }
+    public String getInfoName () {
+         return info.toString();
     }
     // vlozi regiony do hash mapy
     public List<Map<String,?>> vypisRegionyHash() {

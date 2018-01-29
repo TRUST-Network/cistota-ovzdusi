@@ -8,7 +8,7 @@ public class Informace {
     private String code;
     private String name;
 
-    public Informace (String code, String name ) {
+    public Informace (String name ) {
         this.code = code;
         this.name = name;
 

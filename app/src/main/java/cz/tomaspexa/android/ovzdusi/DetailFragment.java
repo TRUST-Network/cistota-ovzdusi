@@ -44,6 +44,7 @@ public class DetailFragment extends Fragment {
 
 
         String stanice = d.getStationName(code);
+        String info = d.getInfoName();
         HashMap <String,Map> component = d.vypisStanici(code);
         StringBuilder sb = new StringBuilder();
         sb.append(stanice);
@@ -53,6 +54,7 @@ public class DetailFragment extends Fragment {
         View v = inflater.inflate(R.layout.stanice_detail, container, false);
 
         TextView name = (TextView) v.findViewById(R.id.name);
+        TextView time = (TextView) v.findViewById(R.id.time);
         LinearLayout NO2 =  (LinearLayout)v.findViewById(R.id.NO2);
         TextView NO2Name = (TextView) v.findViewById(R.id.NO2Name);
         TextView NO2Desc = (TextView) v.findViewById(R.id.NO2Desc);
@@ -80,6 +82,8 @@ public class DetailFragment extends Fragment {
 
 
         name.setText(sb);
+        time.setText(info);
+
 
         for (Map.Entry<String,Map> i : component.entrySet()){
 

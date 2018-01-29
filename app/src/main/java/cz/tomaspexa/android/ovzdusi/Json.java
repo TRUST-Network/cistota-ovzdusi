@@ -50,6 +50,10 @@ public class Json {
         {
             key =  (String) keys_iter.next();
            Object value = object.get(key);
+            if ( key.equals("Actualized")) { // cas poslední aktualizace json
+                System.out.println(value + " Actualized");
+                d.pridejInformace(value.toString());
+            }
            if ( value instanceof JSONArray) {
                 // It's an array
              //   System.out.println(key + " / root path array");
