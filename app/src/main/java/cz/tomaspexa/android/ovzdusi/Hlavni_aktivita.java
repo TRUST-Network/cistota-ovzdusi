@@ -53,7 +53,7 @@ public class Hlavni_aktivita extends ListActivity {
         super.onCreate(savedInstanceState);
        // mDualPane = findViewById(R.id.detail) != null;
 
-        Toast.makeText(getBaseContext(), "Received!", Toast.LENGTH_LONG).show();
+        //Toast.makeText(getBaseContext(), "Received!", Toast.LENGTH_LONG).show();
 
         new HttpAsyncTask().execute(sURL);
     }
@@ -105,6 +105,8 @@ public class Hlavni_aktivita extends ListActivity {
         return sJson;
 
     }
+
+
 /* NAjit kde to bzlo pouzito
     public boolean isConnected(){
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Activity.CONNECTIVITY_SERVICE);
@@ -127,9 +129,8 @@ public class Hlavni_aktivita extends ListActivity {
         // onPostExecute displays the results of the AsyncTask.
         @Override
         protected void onPostExecute(String result) {
-            Toast.makeText(getBaseContext(), "Received!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Received!", Toast.LENGTH_SHORT).show();
 
-           // Scanner sc = new Scanner(System.in, "Windows-1250");
             Json test = new Json();
 
             Databaze d = new Databaze();
@@ -139,8 +140,9 @@ public class Hlavni_aktivita extends ListActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            String[] nazvyAtributu = {"name","code"};
-            int [] idAtributu = {R.id.name,R.id.code};
+            // priradi atributy do hash mapy
+            String[] nazvyAtributu = {"name"};
+            int [] idAtributu = {R.id.name};
             List<Map<String,?>>  regiony = d.vypisRegionyHash();
 
             SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), regiony,R.layout.regiony_list,nazvyAtributu,idAtributu);
@@ -149,9 +151,9 @@ public class Hlavni_aktivita extends ListActivity {
             lv.setOnItemClickListener( new ListView.OnItemClickListener(){
                 public void onItemClick(AdapterView<?> a, View v, int pozice, long l) {
                     HashMap o = (HashMap) a.getItemAtPosition(pozice);
-                    System.out.println(o.get("code"));
+                    System.out.println("Hlavni aktivita " + o.get("code"));
 
-                    Toast.makeText(getBaseContext(),"klik" + pozice , Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getBaseContext(),"klik" + pozice , Toast.LENGTH_LONG).show();
 
                     Intent i = new Intent(getBaseContext(),DataListFragment.class);
                     i.putExtra(DataListFragment.INDEX, pozice);

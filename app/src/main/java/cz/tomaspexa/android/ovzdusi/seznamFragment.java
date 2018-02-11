@@ -36,7 +36,7 @@ public class seznamFragment extends ListFragment{
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        // Chytře se zbavíme zodpovědnosti za vybrání nějakého vládce
+        // Chytře se zbavíme zodpovědnosti za vybrání
         mOnRulerSelectedListener.onRulerSelected(position);
     }
 

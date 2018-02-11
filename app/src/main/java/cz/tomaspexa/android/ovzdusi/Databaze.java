@@ -13,6 +13,8 @@ import java.util.Map;
 /**
  *
  * @author Tom
+ *
+ * Metody databaze
  */
 public class Databaze {
     private ArrayList<Informace> info;

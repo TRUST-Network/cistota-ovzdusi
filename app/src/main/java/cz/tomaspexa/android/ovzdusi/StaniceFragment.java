@@ -21,6 +21,8 @@ import static cz.tomaspexa.android.ovzdusi.Json.d;
 
 /**
  * Created by pexik on 10.10.17.
+ *
+ * Zobrazí seznam stanic v regionu
  */
 
 public class StaniceFragment extends ListFragment {
@@ -45,9 +47,9 @@ public class StaniceFragment extends ListFragment {
         int index = getArguments().getInt(INDEX, 0);
         String code = getArguments().getString(CODE);
         List<Map<String,?>> stanice = d.vypisStaniceHash(code);
-
-        String[] nazvyAtributu = {"name","code"};
-        int [] idAtributu = {R.id.name,R.id.code};
+        // názvy jednotlivých položek
+        String[] nazvyAtributu = {"name"};
+        int [] idAtributu = {R.id.name};
         System.out.println(stanice);
         SimpleAdapter adapter = new SimpleAdapter(getContext(), stanice,R.layout.stanice_list,nazvyAtributu,idAtributu);
         setListAdapter(adapter);

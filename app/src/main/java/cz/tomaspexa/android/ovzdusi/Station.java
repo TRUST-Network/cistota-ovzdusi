@@ -8,6 +8,7 @@ package cz.tomaspexa.android.ovzdusi;
 /**
  *
  * @author Tom
+ * vytvoreni tridy DB
  */
 public class Station {
     private String code;
