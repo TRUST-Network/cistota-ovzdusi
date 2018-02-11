@@ -34,6 +34,9 @@ public class DetailFragment extends Fragment {
         f.setArguments(args);
         return f;
     }
+    protected void refresh (View r){
+        new Hlavni_aktivita.HttpAsyncTask().execute(sURL);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

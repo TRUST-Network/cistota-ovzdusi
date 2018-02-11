@@ -107,6 +107,7 @@ public class Hlavni_aktivita extends ListActivity {
     }
 
 
+
 /* NAjit kde to bzlo pouzito
     public boolean isConnected(){
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Activity.CONNECTIVITY_SERVICE);
