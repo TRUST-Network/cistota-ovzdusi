@@ -40,6 +40,7 @@ package cz.tomaspexa.android.ovzdusi;
         import android.app.Activity;
 
         import static android.media.CamcorderProfile.get;
+        import static cz.tomaspexa.android.ovzdusi.DetailFragment.CODE;
 
 
 public class Hlavni_aktivita extends ListActivity {
@@ -47,11 +48,15 @@ public class Hlavni_aktivita extends ListActivity {
     TextView etResponse;
     TextView tvIsConnected;
     static String sURL = "http://portal.chmi.cz/files/portal/docs/uoco/web_generator/aqindex_cze.json";
+     public static final String CODE = "code";
+
+
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
        // mDualPane = findViewById(R.id.detail) != null;
 
         //Toast.makeText(getBaseContext(), "Received!", Toast.LENGTH_LONG).show();
@@ -147,28 +152,42 @@ public class Hlavni_aktivita extends ListActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            // priradi atributy do hash mapy
-            String[] nazvyAtributu = {"name"};
-            int [] idAtributu = {R.id.name};
-            List<Map<String,?>>  regiony = d.vypisRegionyHash();
 
-            SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), regiony,R.layout.regiony_list,nazvyAtributu,idAtributu);
-            setListAdapter(adapter);
-            ListView lv = getListView();
-            lv.setOnItemClickListener( new ListView.OnItemClickListener(){
-                public void onItemClick(AdapterView<?> a, View v, int pozice, long l) {
-                    HashMap o = (HashMap) a.getItemAtPosition(pozice);
-                    System.out.println("Hlavni aktivita " + o.get("code"));
+            // jestli byl refresh ze stanice tak je intent code a smeruje se rovnou zpatky na stanici
+            if (getIntent().hasExtra(CODE)) {
 
-                    //Toast.makeText(getBaseContext(),"klik" + pozice , Toast.LENGTH_LONG).show();
+                String code = getIntent().getStringExtra(CODE);
+                Intent i = new Intent(getBaseContext(), DetailActivity.class);
 
-                    Intent i = new Intent(getBaseContext(),DataListFragment.class);
-                    i.putExtra(DataListFragment.INDEX, pozice);
-                    i.putExtra(DataListFragment.CODE,(String)o.get("code") );
-                    startActivity(i);
+                startActivity(i);
 
-                }
-            });
+                i.putExtra(CODE, code);
+                startActivity(i);
+            } else {
+                // priradi atributy do hash mapy
+                String[] nazvyAtributu = {"name"};
+                int[] idAtributu = {R.id.name};
+                List<Map<String, ?>> regiony = d.vypisRegionyHash();
+
+                SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), regiony, R.layout.regiony_list, nazvyAtributu, idAtributu);
+                setListAdapter(adapter);
+                ListView lv = getListView();
+                lv.setOnItemClickListener(new ListView.OnItemClickListener() {
+                    public void onItemClick(AdapterView<?> a, View v, int pozice, long l) {
+                        HashMap o = (HashMap) a.getItemAtPosition(pozice);
+                        System.out.println("Hlavni aktivita " + o.get("code"));
+
+                        //Toast.makeText(getBaseContext(),"klik" + pozice , Toast.LENGTH_LONG).show();
+
+                        Intent i = new Intent(getBaseContext(), DataListFragment.class);
+                        i.putExtra(DataListFragment.INDEX, pozice);
+
+                        i.putExtra(DataListFragment.CODE, (String) o.get("code"));
+                        startActivity(i);
+
+                    }
+                });
+            }
         }
 
     }

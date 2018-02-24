@@ -49,7 +49,7 @@ public class DetailFragment extends Fragment {
                                   Bundle savedInstanceState) {
 
         //int index = getArguments().getInt(INDEX, 0);
-        String code = getArguments().getString(CODE);
+        final String code = getArguments().getString(CODE);
 
 
         String stanice = d.getStationName(code);
@@ -71,6 +71,7 @@ public class DetailFragment extends Fragment {
                         Toast.makeText(getContext(),"refresh", Toast.LENGTH_LONG).show();
                         System.out.println("klik na refresh");
                         Intent i = new Intent(getContext(),Hlavni_aktivita.class);
+                        i.putExtra(CODE,code);
                         startActivity(i);
                         break;
                 }
