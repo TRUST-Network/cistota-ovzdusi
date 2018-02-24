@@ -1,14 +1,19 @@
 package cz.tomaspexa.android.ovzdusi;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.List;
@@ -24,7 +29,7 @@ import static cz.tomaspexa.android.ovzdusi.Json.d;
 public class DetailFragment extends Fragment {
     public static final String INDEX = "index";
     public static final String CODE = "code";
-
+    Button btn;
 
     public static DetailFragment newInstance(int index, String code) {
         DetailFragment f = new DetailFragment();
@@ -35,7 +40,8 @@ public class DetailFragment extends Fragment {
         return f;
     }
     protected void refresh (View r){
-        new Hlavni_aktivita.HttpAsyncTask().execute(sURL);
+
+        //new Hlavni_aktivita.HttpAsyncTask().execute(sURL);
     }
 
     @Override
@@ -52,9 +58,29 @@ public class DetailFragment extends Fragment {
         StringBuilder sb = new StringBuilder();
         sb.append(stanice);
         //sb.append(component);
-        System.out.println(sb);
 
-        View v = inflater.inflate(R.layout.stanice_detail, container, false);
+        final View v = inflater.inflate(R.layout.stanice_detail, container, false);
+
+        // kliknuti na refresh
+        btn = (Button) v.findViewById(R.id.refresh);
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch (view.getId()){
+                    case R.id.refresh:
+                        Toast.makeText(getContext(),"refresh", Toast.LENGTH_LONG).show();
+                        System.out.println("klik na refresh");
+                        Intent i = new Intent(getContext(),Hlavni_aktivita.class);
+                        startActivity(i);
+                        break;
+                }
+            }
+        };
+        btn.setOnClickListener(listener);
+
+
+
+
 
         TextView name = (TextView) v.findViewById(R.id.name);
         TextView time = (TextView) v.findViewById(R.id.time);

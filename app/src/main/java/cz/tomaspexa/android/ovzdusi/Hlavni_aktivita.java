@@ -16,6 +16,7 @@ package cz.tomaspexa.android.ovzdusi;
         import org.json.JSONException;
 
         import android.app.ListActivity;
+        import android.content.Context;
         import android.content.Intent;
         import android.net.ConnectivityManager;
         import android.net.NetworkInfo;
@@ -120,7 +121,10 @@ public class Hlavni_aktivita extends ListActivity {
 */
 
 
-    private class HttpAsyncTask extends AsyncTask<String, Void, String> {
+    class HttpAsyncTask extends AsyncTask<String, Void, String> {
+
+        Context ApplicationContext;
+        Activity mActivity;
 
         @Override
         protected String doInBackground(String... urls) {
@@ -130,6 +134,8 @@ public class Hlavni_aktivita extends ListActivity {
         // onPostExecute displays the results of the AsyncTask.
         @Override
         protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
             Toast.makeText(getBaseContext(), "Received!", Toast.LENGTH_SHORT).show();
 
             Json test = new Json();
