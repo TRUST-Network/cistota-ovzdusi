@@ -1,9 +1,11 @@
 package cz.tomaspexa.android.ovzdusi;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
+import android.text.style.BackgroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,20 +48,32 @@ public class StaniceFragment extends ListFragment {
 
         int index = getArguments().getInt(INDEX, 0);
         String code = getArguments().getString(CODE);
-        List<Map<String,?>> stanice = d.vypisStaniceHash(code);
+        final List<Map<String,?>> stanice = d.vypisStaniceHash(code);
+       // int color = Color.parseColor("#"+d.getLegendColor(d.vypisStanice()));
+       // NO2.setBackgroundColor(color);
         // názvy jednotlivých položek
-        String[] nazvyAtributu = {"name"};
-        int [] idAtributu = {R.id.name};
-        System.out.println(stanice);
-        SimpleAdapter adapter = new SimpleAdapter(getContext(), stanice,R.layout.stanice_list,nazvyAtributu,idAtributu);
+        String[] nazvyAtributu = {"name","color"};
+        int [] idAtributu = {R.id.name,R.id.ix};
+        System.out.println("[debug] Stanice fragment " + stanice);
+        final SimpleAdapter adapter = new SimpleAdapter(getContext(), stanice,R.layout.stanice_list,nazvyAtributu,idAtributu){
+            @Override
+            public View getView (int position, View convertView, ViewGroup parent) {
+                View view = super.getView(position,convertView,parent);
+                TextView tv = (TextView) view.findViewById(R.id.ix);
+                tv.setTextColor(stanice.);
+                return view;
+            }
+        };
         setListAdapter(adapter);
         ListView lv = getListView();
         lv.setOnItemClickListener( new ListView.OnItemClickListener(){
             public void onItemClick(AdapterView<?> a, View v, int pozice, long l) {
                 HashMap o = (HashMap) a.getItemAtPosition(pozice);
-                System.out.println(o.get("code"));
+                System.out.println("[debug] Stanice fragment f click" + o.get("code"));
 
-               // Toast.makeText(getBaseContext(),"klik" + pozice , Toast.LENGTH_LONG).show();
+
+
+
 
                Intent i = new Intent(getContext(),DetailActivity.class);
                 i.putExtra(DataListFragment.INDEX, pozice);

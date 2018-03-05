@@ -5,10 +5,14 @@
  */
 package cz.tomaspexa.android.ovzdusi;
 
+import android.graphics.Color;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static cz.tomaspexa.android.ovzdusi.Json.d;
 
 /**
  *
@@ -105,6 +109,8 @@ public class Databaze {
             if (z.getRegion().equals(code)) {
                 polozkyMap.put("name", z.getName());
                 polozkyMap.put("code", z.getCode());
+                polozkyMap.put("ix", z.getIx());
+                polozkyMap.put("color", "#"+d.getLegendColor(z.getIx()));
                 nalezene.add(polozkyMap);
             }
         }
