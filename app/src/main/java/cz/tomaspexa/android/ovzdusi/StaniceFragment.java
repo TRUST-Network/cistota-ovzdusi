@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -52,15 +53,16 @@ public class StaniceFragment extends ListFragment {
        // int color = Color.parseColor("#"+d.getLegendColor(d.vypisStanice()));
        // NO2.setBackgroundColor(color);
         // názvy jednotlivých položek
-        String[] nazvyAtributu = {"name","color"};
-        int [] idAtributu = {R.id.name,R.id.ix};
+        String[] nazvyAtributu = {"name"};
+        int [] idAtributu = {R.id.name};
         System.out.println("[debug] Stanice fragment " + stanice);
         final SimpleAdapter adapter = new SimpleAdapter(getContext(), stanice,R.layout.stanice_list,nazvyAtributu,idAtributu){
             @Override
             public View getView (int position, View convertView, ViewGroup parent) {
+                // obarvi LL podle barvy indexu znecisteni
                 View view = super.getView(position,convertView,parent);
-                TextView tv = (TextView) view.findViewById(R.id.ix);
-                tv.setTextColor(stanice.);
+                LinearLayout tv = (LinearLayout) view.findViewById(R.id.llStanice);
+                tv.setBackgroundColor(Color.parseColor(stanice.get(position).get("color").toString()));
                 return view;
             }
         };
