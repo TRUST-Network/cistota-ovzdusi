@@ -54,6 +54,8 @@ public class DetailFragment extends Fragment {
 
         String stanice = d.getStationName(code);
         String info = d.getInfoName();
+
+
         HashMap <String,Map> component = d.vypisStanici(code);
         StringBuilder sb = new StringBuilder();
         sb.append(stanice);
@@ -109,6 +111,11 @@ public class DetailFragment extends Fragment {
         TextView PM10Name = (TextView) v.findViewById(R.id.PM10Name);
         TextView PM10Desc = (TextView) v.findViewById(R.id.PM10Desc);
         TextView PM10text = (TextView) v.findViewById(R.id.PM10text);
+        LinearLayout PM1024h =  (LinearLayout)v.findViewById(R.id.PM1024h);
+        TextView PM1024hname = (TextView) v.findViewById(R.id.PM1024hname);
+        TextView PM1024hDesc = (TextView) v.findViewById(R.id.PM1024hDesc);
+        TextView PM1024htext = (TextView) v.findViewById(R.id.PM1024htext);
+        TextView PM1024hInt = (TextView) v.findViewById(R.id.PM1024hInt);
 
 
         name.setText(sb);
@@ -123,6 +130,7 @@ public class DetailFragment extends Fragment {
             String text = i.getValue().get("val") +" " + d.getUnitUnit(i.getValue().get("code").toString());
             String UnitName =  d.getUnitName(i.getValue().get("code").toString());
             String UnitDesc =  d.getLegendDesc(i.getValue().get("ix").toString());
+           // String Int = i.getValue().get("ïnterval");
             int color = Color.parseColor("#"+d.getLegendColor(i.getValue().get("ix").toString()));
 
             switch (i.getValue().get("code").toString()){
@@ -157,10 +165,18 @@ public class DetailFragment extends Fragment {
                     PM2_5.setBackgroundColor(color);
                     break;
                 case "PM10":
-                    PM10Name.setText(UnitName);
-                    PM10text.setText(text);
-                    PM10Desc.setText(UnitDesc);
-                    PM10.setBackgroundColor(color);
+                    if ( i.getValue().get("interval").toString().equals("1h")) {
+                        PM10Name.setText(UnitName);
+                        PM10text.setText(text);
+                        PM10Desc.setText(UnitDesc);
+                        PM10.setBackgroundColor(color);
+                    } else {
+                        PM1024hInt.setText("24h");
+                        PM1024hname.setText(UnitName);
+                        PM1024htext.setText(text);
+                        PM1024hDesc.setText(UnitDesc);
+                        PM1024h.setBackgroundColor(color);
+                    }
                     break;
             }
 

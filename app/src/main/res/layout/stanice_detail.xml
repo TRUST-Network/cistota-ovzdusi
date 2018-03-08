@@ -6,7 +6,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="50dp"
         android:orientation="horizontal">
 
         <TextView
@@ -37,166 +37,214 @@
     <LinearLayout
         android:id="@+id/NO2"
         android:layout_width="match_parent"
-        android:layout_height="76dp"
+        android:layout_height="50dp"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/NO2Name"
             style="@android:style/TextAppearance.Large"
             android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:layout_weight="1"/>
+            android:layout_height="50dp"
+            android:layout_weight="1" />
 
         <TextView
             android:id="@+id/NO2text"
             style="@android:style/TextAppearance.Large"
             android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:layout_weight="1"/>
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
         <TextView
             android:id="@+id/NO2Desc"
             style="@android:style/TextAppearance.Large"
             android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:layout_weight="1"/>
+            android:layout_height="50dp"
+            android:layout_weight="1" />
 
     </LinearLayout>
     <LinearLayout
         android:id="@+id/O3"
         android:layout_width="match_parent"
-        android:layout_height="76dp"
+        android:layout_height="50dp"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/O3Name"
             style="@android:style/TextAppearance.Large"
             android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:layout_weight="1"/>
+            android:layout_height="50dp"
+            android:layout_weight="1" />
 
         <TextView
             android:id="@+id/O3text"
             style="@android:style/TextAppearance.Large"
             android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:layout_weight="1"/>
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
         <TextView
             android:id="@+id/O3Desc"
             style="@android:style/TextAppearance.Large"
             android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:layout_weight="1"/>
+            android:layout_height="50dp"
+            android:layout_weight="1" />
 
         </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/SO2"
-        android:layout_width="match_parent"
-        android:layout_height="76dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/SO2Name"
-            style="@android:style/TextAppearance.Large"
-            android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:layout_weight="1"/>
-
-        <TextView
-            android:id="@+id/SO2text"
-            style="@android:style/TextAppearance.Large"
-            android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:layout_weight="1"/>
-        <TextView
-            android:id="@+id/SO2Desc"
-            style="@android:style/TextAppearance.Large"
-            android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:layout_weight="1"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/CO"
-        android:layout_width="match_parent"
-        android:layout_height="76dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/COName"
-            style="@android:style/TextAppearance.Large"
-            android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:layout_weight="1"/>
-
-        <TextView
-            android:id="@+id/COtext"
-            style="@android:style/TextAppearance.Large"
-            android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:layout_weight="1"/>
-        <TextView
-            android:id="@+id/CODesc"
-            style="@android:style/TextAppearance.Large"
-            android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:layout_weight="1"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/PM2_5"
-        android:layout_width="match_parent"
-        android:layout_height="76dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/PM2_5Name"
-            style="@android:style/TextAppearance.Large"
-            android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:layout_weight="1"/>
-
-        <TextView
-            android:id="@+id/PM2_5text"
-            style="@android:style/TextAppearance.Large"
-            android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:layout_weight="1"/>
-        <TextView
-            android:id="@+id/PM2_5Desc"
-            style="@android:style/TextAppearance.Large"
-            android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:layout_weight="1"/>
-
-    </LinearLayout>
     <LinearLayout
         android:id="@+id/PM10"
         android:layout_width="match_parent"
-        android:layout_height="76dp"
+        android:layout_height="50dp"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/PM10Name"
             style="@android:style/TextAppearance.Large"
             android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:layout_weight="1"/>
+            android:layout_height="50dp"
+            android:layout_weight="1" />
 
         <TextView
             android:id="@+id/PM10text"
             style="@android:style/TextAppearance.Large"
             android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:layout_weight="1"/>
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
         <TextView
             android:id="@+id/PM10Desc"
             style="@android:style/TextAppearance.Large"
             android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:layout_weight="1"/>
+            android:layout_height="50dp"
+            android:layout_weight="1" />
 
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/SO2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/SO2Name"
+            style="@android:style/TextAppearance.Large"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/SO2text"
+            style="@android:style/TextAppearance.Large"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/SO2Desc"
+            style="@android:style/TextAppearance.Large"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/CO"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/COName"
+            style="@android:style/TextAppearance.Large"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/COtext"
+            style="@android:style/TextAppearance.Large"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/CODesc"
+            style="@android:style/TextAppearance.Large"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/PM2_5"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/PM2_5Name"
+            style="@android:style/TextAppearance.Large"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/PM2_5text"
+            style="@android:style/TextAppearance.Large"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/PM2_5Desc"
+            style="@android:style/TextAppearance.Large"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/PM1024h"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+       <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+           android:orientation="vertical">
+            <TextView
+                android:id="@+id/PM1024hname"
+                style="@android:style/TextAppearance.Small"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/PM1024hInt"
+                style="@android:style/TextAppearance.Small"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/PM1024htext"
+            style="@android:style/TextAppearance.Large"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/PM1024hDesc"
+            style="@android:style/TextAppearance.Large"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+
+    </LinearLayout>
+
 
 </LinearLayout>

@@ -17,7 +17,9 @@ public class Informace {
         return code;
     }
     public String getName () {
-        return name;
+
+        //System.out.println(name);
+        return this.name;
     }
     @Override
     public String toString() {

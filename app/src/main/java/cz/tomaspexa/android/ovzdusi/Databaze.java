@@ -46,8 +46,8 @@ public class Databaze {
     public void pridejStation (String code, String name, String classif,String ix,String region) {
         stanice.add (new Station ( code, name,classif,ix,region));
     }    
-    public Component pridejComponent (String code, String stanice) {
-        return new Component ( code,stanice);
+    public Component pridejComponent (int index,String code, String stanice) {
+        return new Component ( index, code,stanice);
     }
     public void pridejComponentUnits (String code, String name, String unit) {
         unitA.add ( new ComponentUnits ( code,name,unit));
@@ -68,7 +68,8 @@ public class Databaze {
         return "";
     }
     public String getInfoName () {
-         return info.toString();
+
+        return info.get(0).getName();
     }
     // vlozi regiony do hash mapy
     public List<Map<String,?>> vypisRegionyHash() {
@@ -128,11 +129,12 @@ public class Databaze {
                     Map<String, String> words = new HashMap<>();
                     if (c.getStanice().equals(z.getCode())) {
                         //System.out.println(c.toString());
+                        words.put("index", c.getIndex());
                         words.put("code", c.getCode());
                         words.put("val",c.getVal ());
                         words.put("interval",c.getInt ());
                         words.put("ix",c.getIx ());
-                        nalezene.put(c.getCode(),words);
+                        nalezene.put(c.getIndex(),words);
                     }
                 }
 

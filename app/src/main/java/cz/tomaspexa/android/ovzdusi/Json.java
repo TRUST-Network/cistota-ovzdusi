@@ -26,6 +26,7 @@ public class Json {
         private Object region = "";
         private Object station = "";
         public static Databaze d;
+        private int i = 0; // pocitadlo pro Component
 
         
         public void setDatabaze (Databaze d) {
@@ -51,7 +52,7 @@ public class Json {
             key =  (String) keys_iter.next();
            Object value = object.get(key);
             if ( key.equals("Actualized")) { // cas poslední aktualizace json
-                System.out.println(value + " Actualized");
+                System.out.println(value.toString() + " Actualized");
                 d.pridejInformace(value.toString());
             }
            if ( value instanceof JSONArray) {
@@ -135,8 +136,8 @@ public class Json {
         }        
          if ( parent.equals("Components")) {   
             Object codeC = o.get("Code");
-            c = d.pridejComponent(codeC.toString(), station.toString() );
-            
+            c = d.pridejComponent(this.i, codeC.toString(), station.toString() );
+            this.i++; // pripocte 1 pro kazdou polozku v poli
          }
         // komponenty jednotek
         if ( parent.equals("Components-root")) {
@@ -159,6 +160,7 @@ public class Json {
                 // System.out.println(key + " - "  );
                //  if ( key.equals(skupina)) {
                     // System.out.println(key );
+               this.i = 0; // nulovani pocitadla pole Component
                     JSONArray p;
                     p = o.getJSONArray(key);
                     String text = cyklusA (p, key);
@@ -167,6 +169,7 @@ public class Json {
             } 
             if ( parent.equals("Components")) {   
                 Object codeC = o.get("Code");
+                c.setIndex(this.i); // zapise index pole
                if (key.equals("Val")){ c.setVal(value.toString());}
                if (key.equals("Int")){ c.setInt(value.toString());}
                if (key.equals("Ix")){ c.setIx(value.toString());}
