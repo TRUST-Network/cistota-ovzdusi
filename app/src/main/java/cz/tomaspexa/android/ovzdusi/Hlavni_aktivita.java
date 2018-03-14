@@ -158,6 +158,7 @@ public class Hlavni_aktivita extends ListActivity {
 
                 String code = getIntent().getStringExtra(CODE);
                 Intent i = new Intent(getBaseContext(), DetailActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                 startActivity(i);
 

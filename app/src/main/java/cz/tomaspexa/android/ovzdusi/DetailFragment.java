@@ -71,8 +71,9 @@ public class DetailFragment extends Fragment {
                 switch (view.getId()){
                     case R.id.refresh:
                         Toast.makeText(getContext(),"refresh", Toast.LENGTH_LONG).show();
-                        System.out.println("klik na refresh");
+                        //System.out.println("klik na refresh");
                         Intent i = new Intent(getContext(),Hlavni_aktivita.class);
+                        i.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                         i.putExtra(CODE,code);
                         startActivity(i);
                         break;
