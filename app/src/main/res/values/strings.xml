@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Ovzduší</string>
+    <string name="app_name">Čistota ovzduší</string>
     <string name="zmena">Změna</string>
     <string name="hlavni_aktivita">Čistota ovzduší</string>
     <string name="regiony">Regiony</string>
