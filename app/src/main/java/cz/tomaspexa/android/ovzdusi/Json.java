@@ -145,10 +145,15 @@ public class Json {
             //System.out.println(o.get("Name")+ " komponent ");
             d.pridejComponentUnits (o.get("Code").toString(),o.get("Name").toString(),o.get("Unit").toString()) ;
         }
-        if ( parent.equals("Legend-root")) {
+        if ( parent.equals("LegendIndex-root")) {
             // komponenty pro prevod jednotek
             System.out.println(o.get("Description")+ " legend ");
             d.pridejLegend (o.get("Ix").toString(),o.get("Color").toString(),o.get("ColorText").toString(),o.get("Description").toString()) ;
+        }
+        if ( parent.equals("LegendFlags-root")) {
+            // komponenty
+            //System.out.println(o.get("LegendFlags")+ " legend ");
+            d.pridejLegendFlags (o.get("Flag").toString(),o.get("Color").toString(),o.get("ColorText").toString(),o.get("Description").toString()) ;
         }
          
         while (keys_iter.hasNext())

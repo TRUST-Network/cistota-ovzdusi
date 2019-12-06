@@ -15,7 +15,9 @@ public class Station {
     private String name;
     private String classif;
     private String ix;
+    private String flags;
     private String region;
+
     
     public Station ( String code, String name, String classif,String ix,String region ) {
         this.code = code;

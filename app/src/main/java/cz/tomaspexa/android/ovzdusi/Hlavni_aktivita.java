@@ -47,7 +47,7 @@ public class Hlavni_aktivita extends ListActivity {
 
     TextView etResponse;
     TextView tvIsConnected;
-    static String sURL = "http://portal.chmi.cz/files/portal/docs/uoco/web_generator/aqindex_cze.json";
+    static String sURL = "http://portal.chmi.cz/files/portal/docs/uoco/web_generator/aqindex_3h_cze.json";
      public static final String CODE = "code";
 
 

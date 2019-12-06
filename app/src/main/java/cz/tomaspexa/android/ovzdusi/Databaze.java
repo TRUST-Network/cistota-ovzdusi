@@ -27,6 +27,7 @@ public class Databaze {
     private ArrayList<Component> component;
     private ArrayList<ComponentUnits> unitA;
     private ArrayList<Legend> legend;
+    private ArrayList<LegendFlags> legendFlags;
     
     public Databaze () {
         info = new ArrayList<>();
@@ -35,6 +36,7 @@ public class Databaze {
         component = new ArrayList<>();
         unitA = new ArrayList<>();
         legend = new ArrayList<>();
+        legendFlags = new ArrayList<>();
         
     }
     public void pridejInformace (String name) {
@@ -54,6 +56,9 @@ public class Databaze {
     }
     public void pridejLegend (String ix, String color, String colorText, String description) {
         legend.add ( new Legend ( ix, color, colorText, description));
+    }
+    public void pridejLegendFlags (String flags, String color, String colorText, String description) {
+        legendFlags.add ( new LegendFlags ( flags, color, colorText, description));
     }
     public void ulozComponent (Component o) {
         component.add(o);
