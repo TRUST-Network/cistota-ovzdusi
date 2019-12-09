@@ -36,9 +36,7 @@ public class Station {
     public String getClassif () {
         return classif;
     }     
-    public String getIx () {
-        return ix;
-    }        
+    public String getIx () {        return ix;    }
     public String getRegion () {
         return region;
     }        

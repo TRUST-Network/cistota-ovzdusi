@@ -8,13 +8,15 @@ package cz.tomaspexa.android.ovzdusi;
 /**
  *
  * @author Tom
+ * componenty u stabic taktez detail stanice
  */
 public class Component {
     private int index; // index poradi v poli
     private String code;
     private String interval = "null";;
     private String value = "null";
-    private String ix = "null";;
+    private String ix = "null";
+    private String flags = "hovno";
     private String stanice;
     
     public Component ( int index, String code, String stanice ) {
@@ -36,6 +38,7 @@ public class Component {
     public void setIx ( String ix) {
         this.ix = ix;
     }
+    public void setFlags ( String flags) {this.flags = flags; }
     public String getIndex () {
         return Integer.toString(index);
     }
@@ -50,7 +53,10 @@ public class Component {
     }     
     public String getIx () {
         return ix;
-    }        
+    }
+    public String getFlags () {
+        return flags;
+    }
     public String getStanice () {
         return stanice;
     }        

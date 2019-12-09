@@ -45,8 +45,8 @@ public class Databaze {
     public void pridejRegion (String code, String name) {
         regiony.add (new Region ( code, name));
     }
-    public void pridejStation (String code, String name, String classif,String ix,String region) {
-        stanice.add (new Station ( code, name,classif,ix,region));
+    public void pridejStation (String code, String name, String classif,String flags,String region) {
+        stanice.add (new Station ( code, name,classif,flags,region));
     }    
     public Component pridejComponent (int index,String code, String stanice) {
         return new Component ( index, code,stanice);
@@ -139,6 +139,7 @@ public class Databaze {
                         words.put("val",c.getVal ());
                         words.put("interval",c.getInt ());
                         words.put("ix",c.getIx ());
+                        words.put("flags",c.getFlags ());
                         nalezene.put(c.getIndex(),words);
                     }
                 }
@@ -188,6 +189,27 @@ public class Databaze {
         for (Legend z :  legend) {
             //System.out.println(z.getIx().toString());
             if (z.getIx().equals(ix)) {
+
+                return z.getColor().toString();
+            }
+        }
+        return "80FFFFFF";
+    }
+    public String getLegendFlagsDesc(String flags) {
+        System.out.println(flags.toString());
+        for (LegendFlags z :  legendFlags) {
+            System.out.println(z.getFlags().toString());
+            if (z.getFlags().equals(flags)) {
+
+                return z.getDesc();
+            }
+        }
+        return "";
+    }
+    public String getLegendFlagsColor(String flags) {
+        for (LegendFlags z :  legendFlags) {
+            //System.out.println(z.getIx().toString());
+            if (z.getFlags().equals(flags)) {
 
                 return z.getColor().toString();
             }

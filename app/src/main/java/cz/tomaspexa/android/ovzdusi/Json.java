@@ -9,6 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -73,20 +74,7 @@ public class Json {
             } 
 
         }
-       // ArrayList<Region> regiony = d.vypisRegiony();
-       // ArrayList<Station> stanice_list = d.vypisStanice();
-       
-         
- 
 
-       // treeManager.getData(data[0]).putValue("MPG", 38);
-       // treeManager.getData(data[1]).putValue("MPG", 28);
-
-       // Gson gson = new Gson();
-
-       // System.out.println(gson.toJson(treeManager));
-       
-       //System.out.println(treeManager);
     }
         /*
         @parent - nazev pole
@@ -153,7 +141,15 @@ public class Json {
         if ( parent.equals("LegendFlags-root")) {
             // komponenty
             //System.out.println(o.get("LegendFlags")+ " legend ");
-            d.pridejLegendFlags (o.get("Flag").toString(),o.get("Color").toString(),o.get("ColorText").toString(),o.get("Description").toString()) ;
+            String color = "FFFFFF";
+            String colorText = "000000";
+            if ( o.has("Color") ) {
+                color = o.get("Color").toString();
+            }
+            if ( o.has("ColorText") ) {
+                colorText = o.get("ColorText").toString();
+            }
+            d.pridejLegendFlags (o.get("Flag").toString(),color,colorText,o.get("Description").toString()) ;
         }
          
         while (keys_iter.hasNext())
@@ -178,6 +174,7 @@ public class Json {
                if (key.equals("Val")){ c.setVal(value.toString());}
                if (key.equals("Int")){ c.setInt(value.toString());}
                if (key.equals("Ix")){ c.setIx(value.toString());}
+                if (key.equals("Flag")){ c.setFlags(value.toString());}
             }             
             if ( parent.equals("skupina") && !(value instanceof JSONArray)) { // jiz nema dalsi potomky
                 System.out.println(key + " - " + value + " / child path, ");

@@ -130,9 +130,9 @@ public class DetailFragment extends Fragment {
 
             String text = i.getValue().get("val") +" " + d.getUnitUnit(i.getValue().get("code").toString());
             String UnitName =  d.getUnitName(i.getValue().get("code").toString());
-            String UnitDesc =  d.getLegendDesc(i.getValue().get("ix").toString());
+            String UnitDesc =  d.getLegendFlagsDesc(i.getValue().get("flags").toString());
            // String Int = i.getValue().get("ïnterval");
-            int color = Color.parseColor("#"+d.getLegendColor(i.getValue().get("ix").toString()));
+            int color = Color.parseColor("#"+d.getLegendFlagsColor(i.getValue().get("flags").toString()));
 
             switch (i.getValue().get("code").toString()){
                 case "NO2":
