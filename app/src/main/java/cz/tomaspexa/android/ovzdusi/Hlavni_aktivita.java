@@ -22,10 +22,10 @@ package cz.tomaspexa.android.ovzdusi;
         import android.net.NetworkInfo;
         import android.os.AsyncTask;
         import android.os.Bundle;
-        import android.support.v4.app.FragmentActivity;
-        import android.support.v4.app.FragmentManager;
-        import android.support.v4.app.FragmentTransaction;
-        import android.support.v4.util.ArrayMap;
+      //  import android.support.v4.app.FragmentActivity;
+      //  import android.support.v4.app.FragmentManager;
+      //  import android.support.v4.app.FragmentTransaction;
+      //  import android.support.v4.util.ArrayMap;
         import android.util.Log;
         import android.view.View;
         import android.widget.AdapterView;
@@ -33,7 +33,7 @@ package cz.tomaspexa.android.ovzdusi;
         import android.widget.FrameLayout;
         import android.widget.ListAdapter;
         import android.widget.ListView;
-        import android.support.v4.app.ListFragment;
+    //    import android.support.v4.app.ListFragment;
         import android.widget.SimpleAdapter;
         import android.widget.TextView;
         import android.widget.Toast;
@@ -141,7 +141,7 @@ public class Hlavni_aktivita extends ListActivity {
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
 
-            Toast.makeText(getBaseContext(), "Received!", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getBaseContext(), "Received!", Toast.LENGTH_SHORT).show();
 
             Json test = new Json();
 

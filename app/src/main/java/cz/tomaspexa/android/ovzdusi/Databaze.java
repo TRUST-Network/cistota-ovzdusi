@@ -227,6 +227,16 @@ public class Databaze {
         }
         return nalezene;
     }
+    public String vypisRegionString( String code) {
+        for (Region z : regiony) {
+            if (z.getCode().equals(code)) {
+                System.out.println(z.toString());
+                return z.getName();
+            }
+
+        }
+     return null;
+    }
     @Override
     public String toString() {
         return  "nevim";

@@ -1,12 +1,15 @@
 package cz.tomaspexa.android.ovzdusi;
 
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
+import android.support.v7.app.AppCompatActivity;
+import android.text.Layout;
 import android.text.style.BackgroundColorSpan;
-import android.view.LayoutInflater;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -16,6 +19,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,16 +49,23 @@ public class StaniceFragment extends ListFragment {
     @Override
     public void onActivityCreated (Bundle savedInstanceState ) {
         super.onActivityCreated(savedInstanceState);
-
+        View header = getActivity().getLayoutInflater().inflate(R.layout.stanice_header, null);
+        TextView header_text = (TextView) header.findViewById(R.id.region_header);
+        ListView listView = getListView();
+        listView.addHeaderView(header);
 
         int index = getArguments().getInt(INDEX, 0);
         String code = getArguments().getString(CODE);
+        String region = d.vypisRegionString(code);
         final List<Map<String,?>> stanice = d.vypisStaniceHash(code);
-       // int color = Color.parseColor("#"+d.getLegendColor(d.vypisStanice()));
+        System.out.println("[debug] Stanice fragment - nazev regionu " + d.vypisRegionString(code));
+        header_text.setText("test");
+
+        // int color = Color.parseColor("#"+d.getLegendColor(d.vypisStanice()));
        // NO2.setBackgroundColor(color);
         // názvy jednotlivých položek
-        String[] nazvyAtributu = {"name"};
-        int [] idAtributu = {R.id.name};
+        String[] nazvyAtributu = {"name","ix"};
+        int [] idAtributu = {R.id.name,R.id.classif};
         System.out.println("[debug] Stanice fragment " + stanice);
         final SimpleAdapter adapter = new SimpleAdapter(getContext(), stanice,R.layout.stanice_list,nazvyAtributu,idAtributu){
             @Override

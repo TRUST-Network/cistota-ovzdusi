@@ -1,8 +1,7 @@
 <resources>
     <string name="app_name">Čistota ovzduší</string>
-    <string name="zmena">Změna</string>
-    <string name="hlavni_aktivita">Čistota ovzduší</string>
-    <string name="regiony">Regiony</string>
+    <string name="hlavni_aktivita_regiony">Čistota ovzduší - vyber region</string>
     <string name="stanice">Stanice</string>
     <string name="detail_stanice">Detail stanice</string>
+    <string name="index_znecisteni">index znečištění</string>
 </resources>
